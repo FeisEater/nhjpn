@@ -1,0 +1,14 @@
+@book{KA99,
+author = {Koskinen, Matti and Arajarvi, Pentti},
+title = {title},
+year = {1999},
+publisher = {publisher},
+}
+
+@book{KA99,
+author = {Koskinen, Matti and Arajarvi, Pentti},
+title = {title},
+year = {1999},
+publisher = {publisher},
+}
+

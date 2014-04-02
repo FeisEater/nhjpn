@@ -28,7 +28,7 @@ public class UI {
         System.out.println("Anna Publisher");
         //String publisher = scanner.nextLine();
         //System.out.println("tallennetaanko? (kyllä, ei)");
-        String info[] = {"kova koodatut authorit moi", "title", "vuosi", "publisher"};
+        String info[] = {"Matti Koskinen Pentti Arajarvi", "title", "1999", "publisher"};
         
         try {
             bookwriter.write(info);

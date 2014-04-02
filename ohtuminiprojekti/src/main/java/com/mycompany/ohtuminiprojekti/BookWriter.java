@@ -22,16 +22,17 @@ public class BookWriter implements Writer {
     Formatter formatter;
 
     public BookWriter(ArrayList<String> tags) throws IOException {
-         writer = new FileWriter(new File("references.txt"));
          formatter = new Formatter(tags);
     }
     
     public void write(String[] info) throws IOException {
+        writer = new FileWriter("references.txt", true);
         writer.append("@book{" + formatter.formatTag(info[0].split(" "), info[2]) + ",\n");
         writer.append(formatter.formatAuthors(info[0].split(" ")));
         writer.append(formatter.formatTitle(info[1]));
         writer.append(formatter.formatYear(info[2]));
         writer.append(formatter.formatPublisher(info[3]));
         writer.append("}\n\n");
+        writer.close();
     }
 }
