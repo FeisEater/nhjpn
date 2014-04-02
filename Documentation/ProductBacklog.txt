@@ -1,7 +1,7 @@
 Product backlog
 
 1. Ääkkösten oikea käsittely, jotta asiakas ymmärtää tekstin ja helpompi kirjoittaa lomake
-
+    Asiakkaan on tarkoitus pystyä kirjoittamaan viitteet tavallisella selkeällä suomenkielellä voiden käyttää myös ääkkösiä. 
 2. Asiakas voi viitata viitteeseen tekstin seassa
 
 3. Asiakas voi lisätä uuden viitteen, joka on kirja täyttämällä lomakkeen
