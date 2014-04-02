@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @book{KA99,
 author = {Koskinen, Matti and Arajarvi, Pentti},
 title = {title},
@@ -10,5 +11,12 @@ author = {Koskinen, Matti and Arajarvi, Pentti},
 title = {title},
 year = {1999},
 publisher = {publisher},
+=======
+@book{vj97,
+author = {vaan, joku and jee, authori},
+title = {kirjantitle},
+year = {1897},
+publisher = {Pingviini},
+>>>>>>> 20c42abf9f4807fecdfdedf776a378d7da1490af
 }
 
