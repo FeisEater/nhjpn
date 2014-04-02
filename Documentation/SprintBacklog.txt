@@ -1,0 +1,7 @@
+1. Ääkkösten oikea käsittely, jotta asiakas ymmärtää tekstin ja helpompi kirjoittaa lomake
+   
+2. Asiakas voi viitata viitteeseen tekstin seassa
+
+3. Asiakas voi lisätä uuden viitteen, joka on kirja täyttämällä lomakkeen
+
+4. Asiakas voi listata viitteet selkokielisenä
