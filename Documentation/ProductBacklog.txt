@@ -5,6 +5,9 @@ Product backlog
 	voiden käyttää myös ääkkösiä. Kuitenkin ohjelman tulee kirjata ääkköset BibTex-tiedostoon merkein ä = \"{a} ja ö =  \"{o}.
 	Listattaessa viitteitä myöhemmin eri kategorioilla, täytyy ääkkösten toimia taas normaalisti.
 	
+	Definition of done: Silloin kun asiakas voi kirjoittaa ja lukea ääkkösiö, mutta BibTex-tiedostossa näkyy
+	merkkejä \"{a} ja \"{o}.
+	
 2. Asiakas voi lisätä uuden viitteen,tyypiltään kirja, täyttämällä lomakkeen
 	Asiakas täyttää lomakkeen, jossa määritellään kirjailijat, kirjan nimi, julkaisuvuosi ja julkaisija. 
 	Kaikki ominaisuudet ovat pakollisia. Jos jokin tieto puuttuu, asiakas ei pääse etenemään tietojen täyttämisessä.
