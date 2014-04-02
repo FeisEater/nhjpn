@@ -34,9 +34,9 @@ public class FormatterTest {
     @Before
     public void setUp() {
         ArrayList<String> a = new ArrayList<String>();
-        a.add("tag1");
-        a.add("tag2");
-        a.add("tag3");
+        a.add("abc95");
+        a.add("def01");
+        a.add("ghi64");
         f = new Formatter(a);
     }
     
