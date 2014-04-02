@@ -6,6 +6,7 @@
 
 package com.mycompany.ohtuminiprojekti;
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -32,7 +33,11 @@ public class FormatterTest {
     
     @Before
     public void setUp() {
-        f = new Formatter(null);
+        ArrayList<String> a = new ArrayList<String>();
+        a.add("tag1");
+        a.add("tag2");
+        a.add("tag3");
+        f = new Formatter(a);
     }
     
     @After
