@@ -17,7 +17,8 @@ Product backlog
 	kyseisen id:n.
 
 4. Asiakas voi listata viitteet selkokielisenä
-	Asiakas pystyy listaamaan kaikki kirjaamansa viitteet siinä järjestyksessä, jossa hän on ne tallentanut. 	Listassa ääkköset toimivat normaalisti.
+	Asiakas pystyy listaamaan kaikki kirjaamansa viitteet siinä järjestyksessä, jossa hän on ne tallentanut. 	
+	Listassa ääkköset toimivat normaalisti.
 
 5. Asiakas voi lukea BibTex-muotoista tiedostoa
 	Asiakas pystyy lukemaan tiedostoa, johon kaikki hänen kirjaamansa viitteet ovat tallentuneet.
