@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /**
  *
  * @author niko
- * metodeja jotka saavat syötteenä esim kirjailijat tai julkaisuvuoden ja
+ * Metodeja, jotka saavat syötteenä esim kirjailijat tai julkaisuvuoden ja
  * muotoilevat sen bibtext tiedoston edellyttämään muotoon
  */
 public class Formatter {
