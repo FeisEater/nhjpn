@@ -1,0 +1,70 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package com.mycompany.ohtuminiprojekti;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+/**
+ *
+ * @author Pavel
+ */
+public class FormatterTest {
+    Formatter f;
+    public FormatterTest() {
+    }
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+        f = new Formatter(null);
+    }
+    
+    @After
+    public void tearDown() {
+    }
+
+    @Test
+    public void formatsAuthors()
+    {
+        String[] namelist = {"afirst", "alast", "bfirst", "blast"};
+        assertTrue(f.formatAuthors(namelist).equals("author = {alast, afirst and blast, bfirst},\n"));
+    }
+    @Test
+    public void formatsOneAuthor()
+    {
+        String[] namelist = {"first", "last"};
+        assertTrue(f.formatAuthors(namelist).equals("author = {last, first},\n"));
+    }
+    @Test
+    public void formatsTitle()
+    {
+        assertTrue(f.formatTitle("booktitle").equals("title = {booktitle},\n"));        
+    }
+    @Test
+    public void formatsYear()
+    {
+        assertTrue(f.formatYear("1994").equals("year = {1994},\n"));        
+    }
+    @Test
+    public void formatsPublisher()
+    {
+        assertTrue(f.formatPublisher("pub").equals("publisher = {pub},\n"));        
+    }
+
+}
