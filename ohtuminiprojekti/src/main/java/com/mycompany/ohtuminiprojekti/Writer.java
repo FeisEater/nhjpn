@@ -7,11 +7,12 @@
 package com.mycompany.ohtuminiprojekti;
 
 import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
  * @author niko
  */
 public interface Writer {
-    public void write(String[] info);
+    public void write(String[] info) throws IOException;
 }

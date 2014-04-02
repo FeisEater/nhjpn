@@ -9,6 +9,7 @@ package com.mycompany.ohtuminiprojekti;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
@@ -23,11 +24,7 @@ public class BookWriter implements Writer {
          formatter = new Formatter();
     }
     
-    public void write(String[] info) {
-        writer.append(formatter.formatAuthors(info[0]));
-    }
-    
-    private String[] listAuthors() {
-        
+    public void write(String[] info) throws IOException {
+        writer.append(formatter.formatAuthors(info[0].split(" ")));
     }
 }

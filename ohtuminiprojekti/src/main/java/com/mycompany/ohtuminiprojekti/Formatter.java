@@ -6,6 +6,8 @@
 
 package com.mycompany.ohtuminiprojekti;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author niko
@@ -15,13 +17,15 @@ public class Formatter {
     public Formatter() {
     }
     
-    public String formatAuthors(String[] names) {
+    public String formatAuthors(String[] nameList) {
         String authors = "author = {";
         
-        for (int i = 0; i < names.length; i++) {
-            authors += names[i];
+        for (int i = 0; i < nameList.length; i+=2) {
+            authors += nameList[i-1];
+            authors += ", ";
+            authors += nameList[i];
             
-            if (i != names.length-1) {
+            if (i != nameList.length-1) {
                 authors += " and ";
             }
         }
