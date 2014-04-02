@@ -1,27 +1,50 @@
 Product backlog
 
 1. Ääkkösten oikea käsittely, jotta asiakas ymmärtää tekstin ja helpompi kirjoittaa lomake
-    Asiakkaan on tarkoitus pystyä kirjoittamaan viitteet tavallisella selkeällä suomenkielellä voiden käyttää myös ääkkösiä. 
-2. Asiakas voi viitata viitteeseen tekstin seassa
+	Asiakkaan on tarkoitus pystyä kirjoittamaan viitteet tavallisella selkeällä suomenkielellä, 
+	voiden käyttää myös ääkkösiä. Kuitenkin ohjelman tulee kirjata ääkköset BibTex-tiedostoon merkein ä = \"{a} ja ö =  \"{o}.
+	Listattaessa viitteitä myöhemmin eri kategorioilla, täytyy ääkkösten toimia taas normaalisti.
+	
+2. Asiakas voi lisätä uuden viitteen,tyypiltään kirja, täyttämällä lomakkeen
+	Asiakas täyttää lomakkeen, jossa määritellään kirjailijat, kirjan nimi, julkaisuvuosi ja julkaisija. 
+	Kaikki ominaisuudet ovat pakollisia. Jos jokin tieto puuttuu, asiakas ei pääse etenemään tietojen täyttämisessä.
+	Viimeiseksi varmistetaan haluaako asiakas tallentaa viitteen vai peruuttaa. Jos asiakas tallentaa viitteen, viite tallentuu
+	BibTex-tiedostoon.
 
-3. Asiakas voi lisätä uuden viitteen, joka on kirja täyttämällä lomakkeen
+3. Asiakas voi viitata viitteeseen tekstin seassa
+	Ohjelma generoi jokaiselle asiakkaan kirjaamalle viitteelle oman id:n. Asiakas voi id:n avulla viitata tekstinsä seassa id:n
+	takana olevaan viitteeseen. Viitteen numero tulee näkyviin tekstin sekaan, samaan kohtaan, johon asiakas on kirjoittanut
+	kyseisen id:n.
 
 4. Asiakas voi listata viitteet selkokielisenä
+	Asiakas pystyy listaamaan kaikki kirjaamansa viitteet siinä järjestyksessä, jossa hän on ne tallentanut. 	Listassa ääkköset toimivat normaalisti.
 
-5. Asiakas voi listata viitteet BIB
-
+5. Asiakas voi lukea BibTex-muotoista tiedostoa
+	Asiakas pystyy lukemaan tiedostoa, johon kaikki hänen kirjaamansa viitteet ovat tallentuneet.
+	
 6. Asiakas voi lisätä uuden viitteen joka on muuta muotoa
+	Asiakas pystyy lomakkeen avulla valitsemaan tallentamansa viitteen tyypin, joka on esimerkiksi artikkeli.
+	Valitsemalla tyypin, tulee täytettäväksi eri tietoja, kuten esimerkiksi artikkelille, joka on ilmestynyt
+	jossakin lehdessä, voi antaa tiedoiksi artikkelin sivut.
 
 7. Asiakas voi hakea viiteitä hakusanojen perusteella
+	Asiakas pystyy hakemaan viitteitä tarjasteltavakseen antamalla, jonkin tietyn hakusanan, esimerkiksi
+	vuosiluku, kirjailijan sukunimi tai julkaisia. Viitteet tulostuvat selkokielisenä.
 
 8. Asiakas voi merkitä mihin kategoriaan viite kuuluu
-
+	Asiakas voi kategorioida viitteitä, esimerkiksi merkitsemällä, että jokin viite on erityisesti
+	lääketieteeseen liittyvä tai jokin toinen viite on matematiikkaa. Asiakas voi valita listasta mihin
+	kategorioihin hän haluaa, että tietty viite yhdistetään.
+	
 9. Asiakas voi muokata viitteen
+	Asiakas voi hakea BibTex tiedostosta viitteen muokattavakseen saman näköiseen lomakkeeseen, kuin lisäys
+	lomake. Lisäys lomakkeeseen tulee näkyviin kaikki aiemmat tiedot. Kun asiakas on valmis lomakkeen
+	muokkauksen suhtaan hän voi tallentaa lomakkeen samalla lailla kuin tallentaisi uuden viitteen.
 
 10. Asiakas voi poistaa viitteen
+	Asiakas voi hakea BibTex tiedostosta viitteen muokattavaksi lomake näkymään ja lomakenäkymästä hän voi
+	valita, että haluaa poistaa viitteen. Viite poistetaan BibTex tiedostosta ja asiakas siirretään pois lomake
+	näkymästä. Kaikki viitteet viitteeseen on poistettu.
 
-11. Asiakas voi tallentaa viitteet tiedostoon 
-
-12. Asiakas voi järjestää listan viitteistä aakkosjärjestyksessä
-
-13. Asiakas voi järjestää viitteet myös muilla tavoilla (esim. vuosiluku)
+11. Asiakas voi tallentaa viitteet tiedostoon
+	Asiakas voi tallentaa viitteet tiedostoon, jota hän voi siirtää paikasta toiseen, esimerkiksi USB-tikulle.
