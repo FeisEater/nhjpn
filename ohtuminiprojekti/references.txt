@@ -1,0 +1,7 @@
+@book{vj97,
+author = {vaan, joku and jee, authori},
+title = {kirjantitle},
+year = {1897},
+publisher = {Pingviini},
+}
+

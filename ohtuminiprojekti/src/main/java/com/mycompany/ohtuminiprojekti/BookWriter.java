@@ -33,5 +33,6 @@ public class BookWriter implements Writer {
         writer.append(formatter.formatYear(info[2]));
         writer.append(formatter.formatPublisher(info[3]));
         writer.append("}\n\n");
+        writer.close();
     }
 }
