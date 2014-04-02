@@ -34,7 +34,7 @@ public class Formatter {
         year = year.substring(2);
         String tag = "";
         
-        if (nameList.length == 1) {
+        if (nameList.length == 2) {
             tag += nameList[1];
         } else {
             for (int i = 1; i < nameList.length; i+=2) {

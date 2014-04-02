@@ -23,19 +23,24 @@ public class UI {
         String authors = "";
         while(true){
             String line = scanner.nextLine();
-            if(line.equals("")){
+            if (line.equals("")) {
                 break;
             }
             authors += line + " ";
         }
-        System.out.println(authors);
         System.out.println("Anna Title");
         String title = scanner.nextLine();
         System.out.println("Anna Year");
         String year = scanner.nextLine();
         System.out.println("Anna Publisher");
         String publisher = scanner.nextLine();
-        System.out.println("tallennetaanko? (kyllä, ei)");
+
+        System.out.println("Annoit seuraavat tiedot:");
+        System.out.println("Author:" + authors);
+        System.out.println("Title:" + title);
+        System.out.println("Year:" + year);
+        System.out.println("Publisher:" + publisher);
+
         String info[] = {authors, title, year, publisher};
         
         try {
@@ -43,6 +48,7 @@ public class UI {
         } catch (Exception e) {
             System.out.println("Ei onnaa " + e);
         }
+
     }
 
 }

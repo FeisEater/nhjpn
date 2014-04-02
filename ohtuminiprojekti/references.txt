@@ -1,7 +1,21 @@
-@book{vj97,
-author = {vaan, joku and jee, authori},
-title = {kirjantitle},
-year = {1897},
-publisher = {Pingviini},
+@book{V06,
+author = {Vaan, Joku},
+title = {asfdag},
+year = {2006},
+publisher = {asfag},
+}
+
+@book{H03,
+author = {Halonen, Pekka},
+title = {Pekka Halosen muistelmat},
+year = {2003},
+publisher = {Joku},
+}
+
+@book{Kirjottaja5,
+author = {Kirjottaja, Joku},
+title = {afsshr},
+year = {205},
+publisher = {sddfh},
 }
 
