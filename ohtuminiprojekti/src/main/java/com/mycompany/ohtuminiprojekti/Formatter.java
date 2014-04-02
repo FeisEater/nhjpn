@@ -6,6 +6,8 @@
 
 package com.mycompany.ohtuminiprojekti;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author niko
@@ -13,10 +15,52 @@ package com.mycompany.ohtuminiprojekti;
  * muotoilevat sen bibtext tiedoston edellyttämään muotoon
  */
 public class Formatter {
+    ArrayList<String> tags;
     
     
+    public Formatter(ArrayList<String> tags) {
+        this.tags = tags;
+    }
     
-    public Formatter() {
+    /**
+     * Luo uniikin tagin kirjailijan/kirjailijoiden nimen ja julkaisuvuoden
+     * perusteella
+     * 
+     * @param nameList kirjailijoiden nimet
+     * @param year julkaisuvuosi
+     * @return
+     */
+    public String formatTag(String[] nameList, String year) {
+        year = year.substring(2);
+        String tag = "";
+        
+        if (nameList.length == 1) {
+            tag += nameList[1];
+        } else {
+            for (int i = 1; i < nameList.length; i+=2) {
+                tag += nameList[i].substring(0, 1);
+            }
+        }
+        
+        while (tagIsUsed(tag)) {
+            tag += "I";
+        }
+        
+        return tag+year;
+    }
+    
+    /**
+     * Tarkistaa onko luotu tagi jo käytetty
+     * 
+     * @param tag Tarkistettava luotu tagi
+     * @return 
+     */
+    private boolean tagIsUsed(String tag) {
+        if (tags.contains(tag)) {
+            return true;
+        }
+        
+        return false;
     }
     
     public String formatAuthors(String[] nameList) {
@@ -41,8 +85,8 @@ public class Formatter {
         return "title = {" + title + "},\n";
     }
     
-    public String formatYear(String title) {
-        return "year = {" + title + "},\n";
+    public String formatYear(String year) {
+        return "year = {" + year + "},\n";
     }
     
     public String formatPublisher(String publisher) {
