@@ -1,0 +1,27 @@
+Product backlog
+
+1. Ääkkösten oikea käsittely, jotta asiakas ymmärtää tekstin ja helpompi kirjoittaa lomake
+    Asiakkaan on tarkoitus pystyä kirjoittamaan viitteet tavallisella selkeällä suomenkielellä voiden käyttää myös ääkkösiä. 
+2. Asiakas voi viitata viitteeseen tekstin seassa
+
+3. Asiakas voi lisätä uuden viitteen, joka on kirja täyttämällä lomakkeen
+
+4. Asiakas voi listata viitteet selkokielisenä
+
+5. Asiakas voi listata viitteet BIB
+
+6. Asiakas voi lisätä uuden viitteen joka on muuta muotoa
+
+7. Asiakas voi hakea viiteitä hakusanojen perusteella
+
+8. Asiakas voi merkitä mihin kategoriaan viite kuuluu
+
+9. Asiakas voi muokata viitteen
+
+10. Asiakas voi poistaa viitteen
+
+11. Asiakas voi tallentaa viitteet tiedostoon 
+
+12. Asiakas voi järjestää listan viitteistä aakkosjärjestyksessä
+
+13. Asiakas voi järjestää viitteet myös muilla tavoilla (esim. vuosiluku)
