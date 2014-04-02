@@ -9,11 +9,12 @@ package com.mycompany.ohtuminiprojekti;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  *
  * @author niko
+ * 
+ * Writerin toteuttava luokka, joka kirjoittaa syötetyn kirjan tiedot bibtext tiedostoon
  */
 public class BookWriter implements Writer {
     FileWriter writer;
@@ -26,5 +27,9 @@ public class BookWriter implements Writer {
     
     public void write(String[] info) throws IOException {
         writer.append(formatter.formatAuthors(info[0].split(" ")));
+        writer.append(formatter.formatTitle(info[1]));
+        writer.append(formatter.formatYear(info[2]));
+        writer.append(formatter.formatPublisher(info[3]));
+        writer.append("}\n\n");
     }
 }

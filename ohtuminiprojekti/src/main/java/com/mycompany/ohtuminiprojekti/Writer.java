@@ -6,12 +6,14 @@
 
 package com.mycompany.ohtuminiprojekti;
 
-import java.io.FileWriter;
 import java.io.IOException;
 
 /**
  *
  * @author niko
+ * 
+ * Rajapinta, jonka toteuttavat luokat aina osaavat kirjoittaa yhden tyyppisen julkaisun
+ * tiedot bibtext tiedostoon.
  */
 public interface Writer {
     public void write(String[] info) throws IOException;
