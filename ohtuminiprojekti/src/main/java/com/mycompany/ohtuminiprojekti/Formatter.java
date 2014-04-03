@@ -78,20 +78,20 @@ public class Formatter {
             }
         }
         
-        authors += "},\n";
+        authors += "}," + System.getProperty("line.separator");
         
         return authors;
     }
     
     public String formatTitle(String title) {
-        return "title = {" + title + "},\n";
+        return "title = {" + title + "}," + System.getProperty("line.separator");
     }
     
     public String formatYear(String year) {
-        return "year = {" + year + "},\n";
+        return "year = {" + year + "}," + System.getProperty("line.separator");
     }
     
     public String formatPublisher(String publisher) {
-        return "publisher = {" + publisher + "},\n";
+        return "publisher = {" + publisher + "}," + System.getProperty("line.separator");
     }
 }
