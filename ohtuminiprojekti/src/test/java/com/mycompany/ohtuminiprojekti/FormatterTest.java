@@ -74,13 +74,19 @@ public class FormatterTest {
     @Test
     public void formatsTag()
     {
-        String[] namelist = {"zlast", "zfirst", "ylast", "yfirst", "xlast", "xfirst"};
+        String[] namelist = {"hfirst", "zlast", "jfirst", "ylast", "kfirst", "xlast"};
         assertTrue(f.formatTag(namelist, "1991").equals("zyx91"));
     }
     @Test
     public void formatsTagForOneWriter()
     {
-        String[] namelist = {"last", "first"};
-        assertTrue(f.formatTag(namelist, "1989").equals("first89"));
+        String[] namelist = {"first", "last"};
+        assertTrue(f.formatTag(namelist, "1989").equals("last89"));
+    }
+    @Test
+    public void formatsExistingTag()
+    {
+        String[] namelist = {"hfirst", "alast", "jfirst", "blast", "kfirst", "clast"};
+        assertTrue(f.formatTag(namelist, "1995"),f.formatTag(namelist, "1995").equals("abc95I"));
     }
 }
