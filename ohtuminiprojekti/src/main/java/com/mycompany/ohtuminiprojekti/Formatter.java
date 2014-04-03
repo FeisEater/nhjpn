@@ -42,11 +42,13 @@ public class Formatter {
             }
         }
         
+        tag += year;
+        
         while (tagIsUsed(tag)) {
             tag += "I";
         }
         
-        return tag+year;
+        return tag;
     }
     
     /**

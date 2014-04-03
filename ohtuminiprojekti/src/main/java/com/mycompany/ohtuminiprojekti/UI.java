@@ -1,4 +1,3 @@
-
 package com.mycompany.ohtuminiprojekti;
 
 import java.io.IOException;
@@ -10,7 +9,7 @@ public class UI {
     private final Scanner scanner;
     private BookWriter bookwriter;
     
-    public UI() {    
+    public UI() {
         scanner = new Scanner(System.in);
         ArrayList<String> list = new ArrayList<>();
         try{
@@ -58,7 +57,7 @@ public class UI {
                 break;
             }
             authors += line + " ";
-        } 
+        }
         return authors;
     }
     

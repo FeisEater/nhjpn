@@ -26,31 +26,18 @@ year = {2004},
 publisher = {joku},
 }
 
-@book{NJ99,
-author = {Nykanen, Matti and Joku, Pekka},
-title = {Matti ja Pekka},
-year = {1999},
-publisher = {Emt},
+
+@book{s��56,
+author = {s��, m��},
+title = {m�r�t},
+year = {2356},
+publisher = {khakha�},
 }
 
-@book{Joku05,
-author = {Joku, Jotain},
-title = {Something},
-year = {2005},
-publisher = {Someone},
-}
-
-@book{Luukkainen14,
-author = {Luukkainen, Matti},
-title = {Matin muistelmat},
-year = {2014},
-publisher = {MattiPub},
-}
-
-@book{Authori03,
-author = {Authori, Joku},
-title = {Emt},
-year = {1203},
-publisher = {Vanhat Kirjat},
+@book{K�kk�r�22,
+author = {K�kk�r�, M�ntti},
+title = {M�rk�},
+year = {3522},
+publisher = {�t�kk�},
 }
 

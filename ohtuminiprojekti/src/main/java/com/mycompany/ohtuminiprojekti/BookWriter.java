@@ -20,18 +20,26 @@ import java.util.ArrayList;
 public class BookWriter implements Writer {
     FileWriter writer;
     Formatter formatter;
+    SpecialCharacterHandler handler;
 
     public BookWriter(ArrayList<String> tags) throws IOException {
          formatter = new Formatter(tags);
+         handler = new SpecialCharacterHandler();
     }
     
-    public void write(String[] info) throws IOException {
-        writer = new FileWriter("references.txt", true);
-        writer.append("@book{" + formatter.formatTag(info[0].split(" "), info[2]) + ",\n");
-        writer.append(formatter.formatAuthors(info[0].split(" ")));
-        writer.append(formatter.formatTitle(info[1]));
-        writer.append(formatter.formatYear(info[2]));
-        writer.append(formatter.formatPublisher(info[3]));
+    @Override
+    public void write(String[] info) throws IOException{
+        try {
+            writer = new FileWriter("references.txt", true);
+        } catch (IOException e) {
+            writer = new FileWriter("references.txt");
+        }
+        
+        writer.append(handler.replaceSpecialCharacters("@book{" + formatter.formatTag(info[0].split(" "), info[2]) + ",\n"));
+        writer.append(handler.replaceSpecialCharacters(formatter.formatAuthors(info[0].split(" "))));
+        writer.append(handler.replaceSpecialCharacters(formatter.formatTitle(info[1])));
+        writer.append(handler.replaceSpecialCharacters(formatter.formatYear(info[2])));
+        writer.append(handler.replaceSpecialCharacters(formatter.formatPublisher(info[3])));
         writer.append("}\n\n");
         writer.close();
     }
