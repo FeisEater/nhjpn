@@ -71,5 +71,16 @@ public class FormatterTest {
     {
         assertTrue(f.formatPublisher("pub").equals("publisher = {pub},\n"));        
     }
-
+    @Test
+    public void formatsTag()
+    {
+        String[] namelist = {"zlast", "zfirst", "ylast", "yfirst", "xlast", "xfirst"};
+        assertTrue(f.formatTag(namelist, "1991").equals("zyx91"));
+    }
+    @Test
+    public void formatsTagForOneWriter()
+    {
+        String[] namelist = {"last", "first"};
+        assertTrue(f.formatTag(namelist, "1989").equals("first89"));
+    }
 }
