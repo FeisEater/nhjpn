@@ -19,3 +19,38 @@ year = {205},
 publisher = {sddfh},
 }
 
+@book{Halonen04,
+author = {Halonen, Pekka},
+title = {Pekan muistelmat},
+year = {2004},
+publisher = {joku},
+}
+
+@book{NJ99,
+author = {Nykanen, Matti and Joku, Pekka},
+title = {Matti ja Pekka},
+year = {1999},
+publisher = {Emt},
+}
+
+@book{Joku05,
+author = {Joku, Jotain},
+title = {Something},
+year = {2005},
+publisher = {Someone},
+}
+
+@book{Luukkainen14,
+author = {Luukkainen, Matti},
+title = {Matin muistelmat},
+year = {2014},
+publisher = {MattiPub},
+}
+
+@book{Authori03,
+author = {Authori, Joku},
+title = {Emt},
+year = {1203},
+publisher = {Vanhat Kirjat},
+}
+

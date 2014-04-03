@@ -1,24 +1,55 @@
 
 package com.mycompany.ohtuminiprojekti;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class UI {
 
-    private Scanner scanner;
+    private final Scanner scanner;
     private BookWriter bookwriter;
     
     public UI() {    
         scanner = new Scanner(System.in);
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         try{
             bookwriter = new BookWriter(list);
-        } catch (Exception e){System.out.println("wrtitteria ei luotu" + e);}
+        } catch (IOException e){System.out.println("wrtitteria ei luotu" + e);}
     }
     
-    public void addKirja(){
+    public void addKirja() {
+        String authors = askAuthors();
+        String title = askInfo("title");
+        String year = askInfo("year");
+        String publisher = askInfo("publisher");
+        String info[] = {authors, title, year, publisher};
+        if (getConfirmation(info)) {
+            saveKirja(info);
+        } else {
+            System.out.println("Kirjaa ei tallennettu");
+        }
+    }
+    
+    public void saveKirja(String[] info){
+        try {
+            bookwriter.write(info);
+        } catch (IOException e) {
+            System.out.println("Kirjan tallennus ei onnistunut " + e);
+        }
+    }
+    
+    public boolean getConfirmation(String[] info){
+        System.out.println("Annoit seuraavat tiedot:");
+        for (String infot : info) {
+            System.out.println(infot);
+        }
+        System.out.println("Tallennetaanko? (k/e)");
+        String save = scanner.nextLine();
+        return save.equals("k");
+    }
+    
+    public String askAuthors(){
         System.out.println("Anna Author");
         String authors = "";
         while(true){
@@ -27,28 +58,13 @@ public class UI {
                 break;
             }
             authors += line + " ";
-        }
-        System.out.println("Anna Title");
-        String title = scanner.nextLine();
-        System.out.println("Anna Year");
-        String year = scanner.nextLine();
-        System.out.println("Anna Publisher");
-        String publisher = scanner.nextLine();
-
-        System.out.println("Annoit seuraavat tiedot:");
-        System.out.println("Author:" + authors);
-        System.out.println("Title:" + title);
-        System.out.println("Year:" + year);
-        System.out.println("Publisher:" + publisher);
-
-        String info[] = {authors, title, year, publisher};
-        
-        try {
-            bookwriter.write(info);
-        } catch (Exception e) {
-            System.out.println("Ei onnaa " + e);
-        }
-
+        } 
+        return authors;
+    }
+    
+    public String askInfo(String info){
+        System.out.println("Anna " + info);
+        return scanner.nextLine();
     }
 
 }
