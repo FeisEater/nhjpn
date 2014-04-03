@@ -24,18 +24,18 @@ Product backlog
 	
 	Definition of done: Viitteelle generoituu uniikki id, jonka asiakas voi kirjoittaa tekstin sekaan,
 	joilloin samaan kohtaan tekstiä ilmestyy viitteen numero.
+	
+4. Asiakas voi lukea BibTex-muotoista tiedostoa
+	Asiakas pystyy lukemaan tiedostoa, johon kaikki hänen kirjaamansa viitteet ovat tallentuneet.
+	
+	Definition of done: Tiedoston voi avata.
 
-4. Asiakas voi listata viitteet selkokielisenä
+5. Asiakas voi listata viitteet selkokielisenä
 	Asiakas pystyy listaamaan kaikki kirjaamansa viitteet siinä järjestyksessä, jossa hän on ne tallentanut. 	
 	Listassa ääkköset toimivat normaalisti.
 	
 	Definition of done: Laite tulostaa selkokielisenä listana tiedostoon tallennetut viitteet.
 
-5. Asiakas voi lukea BibTex-muotoista tiedostoa
-	Asiakas pystyy lukemaan tiedostoa, johon kaikki hänen kirjaamansa viitteet ovat tallentuneet.
-	
-	Definition of done: Tiedoston voi avata.
-	
 6. Asiakas voi lisätä uuden viitteen joka on muuta muotoa
 	Asiakas pystyy lomakkeen avulla valitsemaan tallentamansa viitteen tyypin, joka on esimerkiksi artikkeli.
 	Valitsemalla tyypin, tulee täytettäväksi eri tietoja, kuten esimerkiksi artikkelille, joka on ilmestynyt
