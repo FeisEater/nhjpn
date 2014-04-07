@@ -29,17 +29,20 @@ public class BookWriter implements Writer {
     
     @Override
     public void write(String[] info) throws IOException{
+        String kirjoita[] = {"Authorit Sukunimi", "title", "booktitle", "2004", "12--53", "ACM"};
+        
         try {
             writer = new FileWriter("references.txt", true);
         } catch (IOException e) {
             writer = new FileWriter("references.txt");
         }
+
         
         writer.append(handler.replaceSpecialCharacters("@book{" + formatter.formatTag(info[0].split(" "), info[2]) + "," + System.getProperty("line.separator")));
         writer.append(handler.replaceSpecialCharacters(formatter.formatAuthors(info[0].split(" "))));
-        writer.append(handler.replaceSpecialCharacters(formatter.format(info[1])));
-        writer.append(handler.replaceSpecialCharacters(formatter.format(info[2])));
-        writer.append(handler.replaceSpecialCharacters(formatter.format(info[3])));
+        writer.append(handler.replaceSpecialCharacters(formatter.formatTitle(info[1])));
+        writer.append(handler.replaceSpecialCharacters(formatter.formatYear(info[2])));
+        writer.append(handler.replaceSpecialCharacters(formatter.formatPublisher(info[3])));
         writer.append("}" + System.getProperty("line.separator") + System.getProperty("line.separator"));
         writer.close();
     }

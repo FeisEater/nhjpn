@@ -59,17 +59,17 @@ public class FormatterTest {
     @Test
     public void formatsTitle()
     {
-        assertTrue(f.format("booktitle").equals("title = {booktitle},\n"));        
+        assertTrue(f.formatTitle("booktitle").equals("title = {booktitle},\n"));        
     }
     @Test
     public void formatsYear()
     {
-        assertTrue(f.format("1994").equals("year = {1994},\n"));        
+        assertTrue(f.formatYear("1994").equals("year = {1994},\n"));        
     }
     @Test
     public void formatsPublisher()
     {
-        assertTrue(f.format("pub").equals("publisher = {pub},\n"));        
+        assertTrue(f.formatPublisher("pub").equals("publisher = {pub},\n"));        
     }
     @Test
     public void formatsTag()
