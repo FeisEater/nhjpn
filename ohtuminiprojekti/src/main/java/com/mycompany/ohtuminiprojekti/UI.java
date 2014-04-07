@@ -7,14 +7,14 @@ import java.util.Scanner;
 public class UI {
 
     private final Scanner scanner;
-    private BookWriter bookwriter;
+    private Writer writer;
     
     public UI() {
         scanner = new Scanner(System.in);
         ArrayList<String> list = new ArrayList<>();
         try{
-            bookwriter = new BookWriter(list);
-        } catch (IOException e){System.out.println("writteria ei luotu" + e);}
+            writer = new InproceedingsWriter(list);
+        } catch (IOException e){System.out.println("wrtitteria ei luotu" + e);}
     }
     
     public void addKirja() {
@@ -23,18 +23,32 @@ public class UI {
         String year = askInfo("julkaisuvuosi:");
         String publisher = askInfo("julkaisija:");
         String info[] = {authors, title, year, publisher};
+        String types[] = {"authors", "title", "year", "publisher"};
         if (getConfirmation(info)) {
-            saveKirja(info);
+            saveKirja(info, types);
         } else {
             System.out.println("Kirjaa ei tallennettu");
         }
     }
+
     
-    public void saveKirja(String[] info){
+    public void addInproceedings() {
+        String authors = askAuthors();
+        String info[] = {askAuthors() ,askInfo("title"),askInfo("year"),askInfo("booktitle"),askInfo("pages"),askInfo("publisher"),};
+        String types[] = {"authors", "title", "year", "booktitle", "pages", "publisher"};
+        if (getConfirmation(info)) {
+            saveKirja(info, types);
+        } else {
+            System.out.println("Inproceedings ei tallennettu");
+        }
+    }
+    
+    public void saveKirja(String[] info, String[] types){
         try {
             System.out.println("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä): ");
             String tiedostonNimi = scanner.nextLine();
-            bookwriter.write(info, tiedostonNimi + ".bib");
+            writer.write(info, types, tiedostonNimi + ".bib");
+
         } catch (IOException e) {
             System.out.println("Kirjan tallennus ei onnistunut " + e);
         }

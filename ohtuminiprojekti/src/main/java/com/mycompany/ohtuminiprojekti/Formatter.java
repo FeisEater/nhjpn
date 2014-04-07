@@ -81,17 +81,10 @@ public class Formatter {
         return authors;
     }
 
-    public String formatTitle(String title) {
-        return "title = {" + title + "}," + System.getProperty("line.separator");
+    
+    public String format(String type, String info) {
+        return type + " = {" + info + "}," + System.getProperty("line.separator");
     }
 
-
-    public String formatYear(String year) {
-        return "year = {" + year + "}," + System.getProperty("line.separator");
-    }
-
-    public String formatPublisher(String publisher) {
-        return "publisher = {" + publisher + "}," + System.getProperty("line.separator");
-    }
 
 }
