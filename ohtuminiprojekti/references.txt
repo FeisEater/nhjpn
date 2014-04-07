@@ -41,3 +41,24 @@ year = {3522},
 publisher = {�t�kk�},
 }
 
+@book{{"o}91,
+author = {{"o}, {"a}},
+title = {t{"a}itl},
+year = {1991},
+publisher = {p{"a}blisher},
+}
+
+@book{{"o}91,
+author = {{"o}, {"a}},
+title = {t{"a}itl},
+year = {1991},
+publisher = {p{"a}blisher},
+}
+
+@book{RK94,
+author = {Radcliffe, Daniel and King, Stephen},
+title = {Book title},
+year = {1994},
+publisher = {Dark Horse},
+}
+
