@@ -23,18 +23,30 @@ public class UI {
         String year = askInfo("year");
         String publisher = askInfo("publisher");
         String info[] = {authors, title, year, publisher};
+        String types[] = {"authors", "title", "year", "publisher"};
         if (getConfirmation(info)) {
-            saveKirja(info);
+            saveKirja(info, types);
         } else {
             System.out.println("Kirjaa ei tallennettu");
         }
     }
     
-    public void saveKirja(String[] info){
+    public void addInproceedings() {
+        String authors = askAuthors();
+        String info[] = {askAuthors() ,askInfo("title"),askInfo("year"),askInfo("booktitle"),askInfo("pages"),askInfo("publisher"),};
+        String types[] = {"authors", "title", "year", "booktitle", "pages", "publisher"};
+        if (getConfirmation(info)) {
+            saveKirja(info, types);
+        } else {
+            System.out.println("Inproceedings ei tallennettu");
+        }
+    }
+    
+    public void saveKirja(String[] info, String[] types){
         try {
             System.out.println("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä): ");
             String tiedostonNimi = scanner.nextLine();
-            bookwriter.write(info, tiedostonNimi + ".bib");
+            bookwriter.write(info, types, tiedostonNimi + ".bib");
         } catch (IOException e) {
             System.out.println("Kirjan tallennus ei onnistunut " + e);
         }
