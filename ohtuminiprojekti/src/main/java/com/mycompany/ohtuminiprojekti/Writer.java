@@ -16,5 +16,5 @@ import java.io.IOException;
  * tiedot bibtext tiedostoon.
  */
 public interface Writer {
-    public void write(String[] info, String[] types, String tiedostonNimi) throws IOException;
+    public void write(String[] info, String[] types,String referenceType, String tiedostonNimi) throws IOException;
 }

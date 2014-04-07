@@ -28,25 +28,18 @@ public class BookWriter implements Writer {
     }
     
     @Override
-        public void write(String[] types, String[] info, String tiedostonNimi) throws IOException{
+        public void write(String[] types, String[] info, String referenceType, String tiedostonNimi) throws IOException{
         try {
             writer = new FileWriter(tiedostonNimi, true);
         } catch (IOException e) {
             writer = new FileWriter(tiedostonNimi + ".bib");
         }
-        writer.append(handler.replaceSpecialCharacters("@book{" + formatter.formatTag(info[0].split(" "), info[2]) + "," + System.getProperty("line.separator")));
+        writer.append(handler.replaceSpecialCharacters(referenceType + "{" + formatter.formatTag(info[0].split(" "), info[2]) + "," + System.getProperty("line.separator")));
         writer.append(handler.replaceSpecialCharacters(formatter.formatAuthors(info[0].split(" "))));
         for(int i = 1; i < types.length; i ++){
-            writer.append(handler.replaceSpecialCharacters(formatter.format(info[i], types[i])));
+            writer.append(handler.replaceSpecialCharacters(formatter.format(types[i], info[i])));
         }
         writer.append("}" + System.getProperty("line.separator") + System.getProperty("line.separator"));
-        
-//        writer.append(handler.replaceSpecialCharacters("@book{" + formatter.formatTag(info[0].split(" "), info[2]) + "," + System.getProperty("line.separator")));
-//        writer.append(handler.replaceSpecialCharacters(formatter.formatAuthors(info[0].split(" "))));
-//        writer.append(handler.replaceSpecialCharacters(formatter.format(info[1], types[1])));
-//        writer.append(handler.replaceSpecialCharacters(formatter.format(info[2], types[2])));
-//        writer.append(handler.replaceSpecialCharacters(formatter.format(info[3], types[3])));
-//        writer.append("}" + System.getProperty("line.separator") + System.getProperty("line.separator"));
         writer.close();
     }
 
