@@ -7,21 +7,21 @@ import java.util.Scanner;
 public class UI {
 
     private final Scanner scanner;
-    private BookWriter bookwriter;
+    private Writer writer;
     
     public UI() {
         scanner = new Scanner(System.in);
         ArrayList<String> list = new ArrayList<>();
         try{
-            bookwriter = new BookWriter(list);
-        } catch (IOException e){System.out.println("writteria ei luotu" + e);}
+            writer = new InproceedingsWriter(list);
+        } catch (IOException e){System.out.println("wrtitteria ei luotu" + e);}
     }
     
     public void addKirja() {
         String authors = askAuthors();
-        String title = askInfo("title");
-        String year = askInfo("year");
-        String publisher = askInfo("publisher");
+        String title = askInfo("teoksen nimi:");
+        String year = askInfo("julkaisuvuosi:");
+        String publisher = askInfo("julkaisija:");
         String info[] = {authors, title, year, publisher};
         String types[] = {"authors", "title", "year", "publisher"};
         if (getConfirmation(info)) {
@@ -30,6 +30,7 @@ public class UI {
             System.out.println("Kirjaa ei tallennettu");
         }
     }
+
     
     public void addInproceedings() {
         String authors = askAuthors();
@@ -46,7 +47,8 @@ public class UI {
         try {
             System.out.println("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä): ");
             String tiedostonNimi = scanner.nextLine();
-            bookwriter.write(info, types, tiedostonNimi + ".bib");
+            writer.write(info, types, tiedostonNimi + ".bib");
+
         } catch (IOException e) {
             System.out.println("Kirjan tallennus ei onnistunut " + e);
         }
@@ -63,7 +65,7 @@ public class UI {
     }
     
     public String askAuthors(){
-        System.out.println("Anna Author");
+        System.out.println("Anna kirjailija/kirjailijat (Etunimen ja sukunimen välissä paina Enter ja lopuksi vielä Enter):");
         String authors = "";
         while(true){
             String line = scanner.nextLine();

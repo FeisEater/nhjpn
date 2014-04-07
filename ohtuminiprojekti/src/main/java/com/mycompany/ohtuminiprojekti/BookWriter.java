@@ -28,7 +28,7 @@ public class BookWriter implements Writer {
     }
     
     @Override
-        public void write(String[] types,String[] info, String tiedostonNimi) throws IOException{
+        public void write(String[] types, String[] info, String tiedostonNimi) throws IOException{
         try {
             writer = new FileWriter(tiedostonNimi, true);
         } catch (IOException e) {
