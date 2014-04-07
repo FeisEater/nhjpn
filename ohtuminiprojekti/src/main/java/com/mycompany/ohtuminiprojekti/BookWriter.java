@@ -34,6 +34,7 @@ public class BookWriter implements Writer {
         } catch (IOException e) {
             writer = new FileWriter(tiedostonNimi + ".bib");
         }
+
         
         writer.append(handler.replaceSpecialCharacters("@book{" + formatter.formatTag(info[0].split(" "), info[2]) + "," + System.getProperty("line.separator")));
         writer.append(handler.replaceSpecialCharacters(formatter.formatAuthors(info[0].split(" "))));
