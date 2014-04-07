@@ -19,9 +19,9 @@ public class UI {
     
     public void addKirja() {
         String authors = askAuthors();
-        String title = askInfo("title");
-        String year = askInfo("year");
-        String publisher = askInfo("publisher");
+        String title = askInfo("teoksen nimi:");
+        String year = askInfo("julkaisuvuosi:");
+        String publisher = askInfo("julkaisija:");
         String info[] = {authors, title, year, publisher};
         if (getConfirmation(info)) {
             saveKirja(info);
@@ -58,7 +58,9 @@ public class UI {
 
     public void saveKirja(String[] info){
         try {
-            writer.write(info);
+            System.out.println("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä): ");
+            String tiedostonNimi = scanner.nextLine();
+            writer.write(info, tiedostonNimi + ".bib");
         } catch (IOException e) {
             System.out.println("Kirjan tallennus ei onnistunut " + e);
         }
@@ -75,7 +77,7 @@ public class UI {
     }
     
     public String askAuthors(){
-        System.out.println("Anna Author");
+        System.out.println("Anna kirjailija/kirjailijat (Etunimen ja sukunimen välissä paina Enter ja lopuksi vielä Enter):");
         String authors = "";
         while(true){
             String line = scanner.nextLine();

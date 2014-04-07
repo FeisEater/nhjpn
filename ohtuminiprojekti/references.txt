@@ -75,3 +75,42 @@ year = {1995},
 booktitle = {booktitle},
 }
 
+@book{sdgsdgh03,
+author = {sdgsdgh, ASsaf},
+asfshd = {asfshd},
+2003 = {2003},
+asfdhrj = {asfdhrj},
+}
+
+Inproceedings{Sukunimioktitle,
+author = {Sukunimi, Authorit},
+title = {title},
+title = {title},
+title = {title},
+title = {title},
+title = {title},
+}
+
+Inproceedings{Sukunimioktitle,
+author = {Sukunimi, Authorit},
+title = {title},
+booktitle = {booktitle},
+2004 = {2004},
+12--53 = {12--53},
+ACM = {ACM},
+}
+
+@book{Sukunimioktitle,
+author = {Sukunimi, Authorit},
+title = {title},
+year = {booktitle},
+publisher = {2004},
+}
+
+@book{bb40,
+author = {bb, aa},
+title = {2003},
+year = {2340},
+publisher = {asfgh},
+}
+
