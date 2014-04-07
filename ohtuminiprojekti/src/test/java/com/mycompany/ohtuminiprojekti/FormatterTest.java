@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 /**
  *
  * @author Pavel
- */
+ 
 public class FormatterTest {
     Formatter f;
     public FormatterTest() {
@@ -90,3 +90,4 @@ public class FormatterTest {
         assertTrue(f.formatTag(namelist, "1995"),f.formatTag(namelist, "1995").equals("abc95I"));
     }
 }
+*/
