@@ -86,6 +86,7 @@ public class Formatter {
     public String formatTitle(String title) {
         return "title = {" + title + "}," + System.getProperty("line.separator");
     }
+<<<<<<< HEAD
     
     public String formatYear(String year) {
         return "year = {" + year + "}," + System.getProperty("line.separator");
@@ -93,5 +94,12 @@ public class Formatter {
     
     public String formatPublisher(String publisher) {
         return "publisher = {" + publisher + "}," + System.getProperty("line.separator");
+=======
+    public String formatYear(String year) {
+        return "title = {" + year + "}," + System.getProperty("line.separator");
+    }
+    public String formatPublisher(String publisher) {
+        return "title = {" + publisher + "}," + System.getProperty("line.separator");
+>>>>>>> b60916d97dde50a91a067c0c65d56ebf5cb7d7ff
     }
 }

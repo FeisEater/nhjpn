@@ -14,7 +14,7 @@ public class UI {
         ArrayList<String> list = new ArrayList<>();
         try{
             bookwriter = new BookWriter(list);
-        } catch (IOException e){System.out.println("wrtitteria ei luotu" + e);}
+        } catch (IOException e){System.out.println("writteria ei luotu" + e);}
     }
     
     public void addKirja() {
@@ -32,7 +32,7 @@ public class UI {
     
     public void saveKirja(String[] info){
         try {
-            System.out.println("Anna tallennettavan tiedoston nimi: ");
+            System.out.println("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä): ");
             String tiedostonNimi = scanner.nextLine();
             bookwriter.write(info, tiedostonNimi + ".bib");
         } catch (IOException e) {
