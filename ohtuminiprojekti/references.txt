@@ -62,3 +62,10 @@ year = {1994},
 publisher = {Dark Horse},
 }
 
+@book{sdgsdgh03,
+author = {sdgsdgh, ASsaf},
+asfshd = {asfshd},
+2003 = {2003},
+asfdhrj = {asfdhrj},
+}
+
