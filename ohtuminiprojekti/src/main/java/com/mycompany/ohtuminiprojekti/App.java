@@ -10,6 +10,6 @@ public class App
     {
         System.out.println( "Hello World!" );
         UI ui = new UI();
-        ui.addKirja();
+        ui.addInproceedings();
     }
 }

@@ -1,4 +1,4 @@
-@book{V06,
+﻿@book{V06,
 author = {Vaan, Joku},
 title = {asfdag},
 year = {2006},
@@ -60,5 +60,18 @@ author = {Radcliffe, Daniel and King, Stephen},
 title = {Book title},
 year = {1994},
 publisher = {Dark Horse},
+}
+@article{authorson84,
+author = {authorson, author},
+title = {1994},
+year = {1984},
+journal = {journal},
+}
+
+@inproceedings{suku95,
+author = {suku, etu},
+title = {title},
+year = {1995},
+booktitle = {booktitle},
 }
 

@@ -94,4 +94,13 @@ public class Formatter {
     public String formatPublisher(String publisher) {
         return "publisher = {" + publisher + "}," + System.getProperty("line.separator");
     }
+
+    public String formatJournal(String journal) {
+        return "journal = {" + journal + "}," + System.getProperty("line.separator");
+    }
+
+    public String formatBooktitle(String booktitle) {
+        return "booktitle = {" + booktitle + "}," + System.getProperty("line.separator");
+    }
+
 }

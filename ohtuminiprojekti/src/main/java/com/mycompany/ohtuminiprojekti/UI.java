@@ -7,13 +7,13 @@ import java.util.Scanner;
 public class UI {
 
     private final Scanner scanner;
-    private BookWriter bookwriter;
+    private Writer writer;
     
     public UI() {
         scanner = new Scanner(System.in);
         ArrayList<String> list = new ArrayList<>();
         try{
-            bookwriter = new BookWriter(list);
+            writer = new InproceedingsWriter(list);
         } catch (IOException e){System.out.println("wrtitteria ei luotu" + e);}
     }
     
@@ -29,10 +29,36 @@ public class UI {
             System.out.println("Kirjaa ei tallennettu");
         }
     }
-    
+
+    public void addArtikkeli() {
+        String authors = askAuthors();
+        String title = askInfo("title");
+        String year = askInfo("year");
+        String journal = askInfo("journal");
+        String info[] = {authors, title, year, journal};
+        if (getConfirmation(info)) {
+            saveKirja(info);
+        } else {
+            System.out.println("Artikkelia ei tallennettu");
+        }
+    }
+
+    public void addInproceedings() {
+        String authors = askAuthors();
+        String title = askInfo("title");
+        String year = askInfo("year");
+        String booktitle = askInfo("booktitle");
+        String info[] = {authors, title, year, booktitle};
+        if (getConfirmation(info)) {
+            saveKirja(info);
+        } else {
+            System.out.println("Inproceedingsia ei tallennettu");
+        }
+    }
+
     public void saveKirja(String[] info){
         try {
-            bookwriter.write(info);
+            writer.write(info);
         } catch (IOException e) {
             System.out.println("Kirjan tallennus ei onnistunut " + e);
         }
