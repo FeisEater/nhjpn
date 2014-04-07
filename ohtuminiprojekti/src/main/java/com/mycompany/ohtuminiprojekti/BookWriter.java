@@ -28,11 +28,11 @@ public class BookWriter implements Writer {
     }
     
     @Override
-    public void write(String[] info) throws IOException{
+    public void write(String[] info, String tiedostonNimi) throws IOException{
         try {
-            writer = new FileWriter("references.txt", true);
+            writer = new FileWriter(tiedostonNimi, true);
         } catch (IOException e) {
-            writer = new FileWriter("references.txt");
+            writer = new FileWriter(tiedostonNimi + ".bib");
         }
         
         writer.append(handler.replaceSpecialCharacters("@book{" + formatter.formatTag(info[0].split(" "), info[2]) + "," + System.getProperty("line.separator")));
