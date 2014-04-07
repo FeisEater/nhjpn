@@ -1,4 +1,4 @@
-@book{V06,
+﻿@book{V06,
 author = {Vaan, Joku},
 title = {asfdag},
 year = {2006},
@@ -26,32 +26,92 @@ year = {2004},
 publisher = {joku},
 }
 
-@book{NJ99,
-author = {Nykanen, Matti and Joku, Pekka},
-title = {Matti ja Pekka},
-year = {1999},
-publisher = {Emt},
+
+@book{s��56,
+author = {s��, m��},
+title = {m�r�t},
+year = {2356},
+publisher = {khakha�},
 }
 
-@book{Joku05,
-author = {Joku, Jotain},
-title = {Something},
-year = {2005},
-publisher = {Someone},
+@book{K�kk�r�22,
+author = {K�kk�r�, M�ntti},
+title = {M�rk�},
+year = {3522},
+publisher = {�t�kk�},
 }
 
-@book{Luukkainen14,
-author = {Luukkainen, Matti},
-title = {Matin muistelmat},
-year = {2014},
-publisher = {MattiPub},
+@book{{"o}91,
+author = {{"o}, {"a}},
+title = {t{"a}itl},
+year = {1991},
+publisher = {p{"a}blisher},
 }
 
-@book{Authori03,
-author = {Authori, Joku},
-title = {Emt},
-year = {1203},
-publisher = {Vanhat Kirjat},
+@book{{"o}91,
+author = {{"o}, {"a}},
+title = {t{"a}itl},
+year = {1991},
+publisher = {p{"a}blisher},
+}
+
+@book{RK94,
+author = {Radcliffe, Daniel and King, Stephen},
+title = {Book title},
+year = {1994},
+publisher = {Dark Horse},
+}
+@article{authorson84,
+author = {authorson, author},
+title = {1994},
+year = {1984},
+journal = {journal},
+}
+
+@inproceedings{suku95,
+author = {suku, etu},
+title = {title},
+year = {1995},
+booktitle = {booktitle},
+}
+
+@book{sdgsdgh03,
+author = {sdgsdgh, ASsaf},
+asfshd = {asfshd},
+2003 = {2003},
+asfdhrj = {asfdhrj},
+}
+
+Inproceedings{Sukunimioktitle,
+author = {Sukunimi, Authorit},
+title = {title},
+title = {title},
+title = {title},
+title = {title},
+title = {title},
+}
+
+Inproceedings{Sukunimioktitle,
+author = {Sukunimi, Authorit},
+title = {title},
+booktitle = {booktitle},
+2004 = {2004},
+12--53 = {12--53},
+ACM = {ACM},
+}
+
+@book{Sukunimioktitle,
+author = {Sukunimi, Authorit},
+title = {title},
+year = {booktitle},
+publisher = {2004},
+}
+
+@book{bb40,
+author = {bb, aa},
+title = {2003},
+year = {2340},
+publisher = {asfgh},
 }
 
 @book{Author3,
