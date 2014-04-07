@@ -32,7 +32,9 @@ public class UI {
     
     public void saveKirja(String[] info){
         try {
-            bookwriter.write(info);
+            System.out.println("Anna tallennettavan tiedoston nimi: ");
+            String tiedostonNimi = scanner.nextLine();
+            bookwriter.write(info, tiedostonNimi + ".bib");
         } catch (IOException e) {
             System.out.println("Kirjan tallennus ei onnistunut " + e);
         }

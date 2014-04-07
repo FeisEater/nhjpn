@@ -28,13 +28,11 @@ public class BookWriter implements Writer {
     }
     
     @Override
-    public void write(String[] info) throws IOException{
-        String kirjoita[] = {"Authorit Sukunimi", "title", "booktitle", "2004", "12--53", "ACM"};
-        
+    public void write(String[] info, String tiedostonNimi) throws IOException{
         try {
-            writer = new FileWriter("references.txt", true);
+            writer = new FileWriter(tiedostonNimi, true);
         } catch (IOException e) {
-            writer = new FileWriter("references.txt");
+            writer = new FileWriter(tiedostonNimi + ".bib");
         }
 
         
