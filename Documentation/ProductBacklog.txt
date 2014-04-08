@@ -30,7 +30,7 @@ Product backlog
 	
 	Definition of done: Tiedoston voi avata.
 
-5. Käyttäjänä voin listata viitteet selkokielisenä
+5. Käyttäjänä voin listata viitteet selkokielisenä tiedostossa
 	Asiakas pystyy listaamaan kaikki kirjaamansa viitteet siinä järjestyksessä, jossa hän on ne tallentanut. 	
 	Listassa ääkköset toimivat normaalisti.
 	
