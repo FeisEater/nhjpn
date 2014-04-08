@@ -15,10 +15,10 @@ public class SpecialCharacterHandler {
     }
     
     public String replaceSpecialCharacters(String line) {
-        line = line.replace("ä", "{\"a}");
-        line = line.replace("Ä", "{\"A}");
-        line = line.replace("ö", "{\"o}");
-        line = line.replace("Ö", "{\"O}");
+        line = line.replace("ä", "\\" + "\"{a}");//"{\"a}");
+        line = line.replace("Ä", "\\" + "\"{A}");
+        line = line.replace("ö", "\\" + "\"{o}");
+        line = line.replace("Ö", "\\" + "\"{O}");
         
         return line;
     }
