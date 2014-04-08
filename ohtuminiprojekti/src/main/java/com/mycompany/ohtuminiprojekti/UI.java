@@ -1,90 +1,51 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package com.mycompany.ohtuminiprojekti;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ *
+ * @author joonas
+ */
 public class UI {
-
-    private final Scanner scanner;
-    private Writer writer;
     
-    public UI() {
-        scanner = new Scanner(System.in);
-        ArrayList<String> list = new ArrayList<>();
-        try{
-            writer = new TypeWriter(list);
-        } catch (IOException e){System.out.println("wrtitteria ei luotu" + e);}
+    private Scanner scanner;
+    private Reference reference;
+    
+    public UI(Scanner scanner){
+        this.scanner = scanner;
+        this.reference = new Reference(scanner);
     }
     
-    public void addKirja() {
-        String info[] = {askAuthors(), askInfo("title"), askInfo("year"), askInfo("publisher")};
-        String types[] = {"authors", "title", "year", "publisher"};
-        if (getConfirmation(info)) {
-            save(info, types, "@book");
-        } else {
-            System.out.println("Kirjaa ei tallennettu");
+    public void run(){
+        System.out.println("Welcome");
+        System.out.println("add, search or exit?");
+        String komento = scanner.nextLine();
+        if(komento.equals("add")){
+            addReference();
+        } else if(komento.equals("search")){
+            
+        } else if (komento.equals("exit")){
+            
         }
-    }
-
-    
-    public void addInproceedings() {
-        String info[] = {askAuthors() ,askInfo("title"),askInfo("year"),askInfo("booktitle"),askInfo("pages"),askInfo("publisher")};
-        String types[] = {"authors", "title", "year", "booktitle", "pages", "publisher"};
-        if (getConfirmation(info)) {
-            save(types, info, "@inproceedings");
-        } else {
-            System.out.println("Inproceedings ei tallennettu");
-        }
-    }
-    
-    public void addArticle() {
-        String info[] = {askAuthors() ,askInfo("title"),askInfo("year"),askInfo("journal")};
-        String types[] = {"authors", "title", "year", "journal"};
-        if (getConfirmation(info)) {
-            save(types, info, "@article");
-        } else {
-            System.out.println("Inproceedings ei tallennettu");
-        }
-    }
-    
-    public void save(String[] type, String[] info, String referenceType){
-        try {
-            System.out.println("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä): ");
-            String tiedostonNimi = scanner.nextLine();
-            writer.write(type, info, referenceType, tiedostonNimi + ".bib");
-
-        } catch (IOException e) {
-            System.out.println("Kirjan tallennus ei onnistunut " + e);
-        }
-    }
-    
-    public boolean getConfirmation(String[] info){
-        System.out.println("Annoit seuraavat tiedot:");
-        for (String infot : info) {
-            System.out.println(infot);
-        }
-        System.out.println("Tallennetaanko? (k/e)");
-        String save = scanner.nextLine();
-        return save.equals("k");
-    }
-    
-    public String askAuthors(){
-        System.out.println("Anna kirjailija/kirjailijat (Etunimen ja sukunimen välissä paina Enter ja lopuksi vielä Enter):");
-        String authors = "";
-        while(true){
-            String line = scanner.nextLine();
-            if (line.equals("")) {
-                break;
-            }
-            authors += line + " ";
-        }
-        return authors;
-    }
-    
-    public String askInfo(String info){
-        System.out.println("Anna " + info);
-        return scanner.nextLine();
+        
     }
 
+    private void addReference() {
+        System.out.println("book, inproceedings or article?");
+        String komento = scanner.nextLine();
+        if(komento.equals("book")){
+            this.reference.addKirja();
+        } else if (komento.equals("inproceedings")){
+            this.reference.addInproceedings();
+        } else if (komento.equals(("article"))){
+            this.reference.addArticle();
+        }
+    }
+    
 }
