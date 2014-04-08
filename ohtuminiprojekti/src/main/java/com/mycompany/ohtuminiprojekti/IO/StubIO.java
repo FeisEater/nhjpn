@@ -32,4 +32,8 @@ public class StubIO implements IO {
         outputList.add(out);
     }
     
+    public String getOutput(int index){
+        return outputList.get(index);
+    }
+    
 }
