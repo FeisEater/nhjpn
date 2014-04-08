@@ -43,7 +43,7 @@ public class UI {
         }
     }
 
-    private void addReference() {
+    public void addReference() {
         System.out.println("book, inproceedings or article?");
         String komento = scanner.nextLine();
         switch (komento) {
