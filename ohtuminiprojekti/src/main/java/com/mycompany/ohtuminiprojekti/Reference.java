@@ -1,16 +1,16 @@
 package com.mycompany.ohtuminiprojekti;
 
+import com.mycompany.ohtuminiprojekti.IO.IO;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Reference {
 
-    private final Scanner scanner;
+    private final IO io;
     private Writer writer;
     
-    public Reference(Scanner scanner) {
-        this.scanner = scanner;
+    public Reference(IO io) {
+        this.io = io;
         ArrayList<String> list = new ArrayList<>();
         try{
             writer = new TypeWriter(list);
@@ -51,7 +51,7 @@ public class Reference {
     public void save(String[] type, String[] info, String referenceType){
         try {
             System.out.println("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä): ");
-            String tiedostonNimi = scanner.nextLine();
+            String tiedostonNimi = io.nextInput();
             writer.write(type, info, referenceType, tiedostonNimi + ".bib");
 
         } catch (IOException e) {
@@ -65,7 +65,7 @@ public class Reference {
             System.out.println(infot);
         }
         System.out.println("Tallennetaanko? (k/e)");
-        String save = scanner.nextLine();
+        String save = io.nextInput();
         return save.equals("k");
     }
     
@@ -73,7 +73,7 @@ public class Reference {
         System.out.println("Anna kirjailija/kirjailijat (Etunimen ja sukunimen välissä paina Enter ja lopuksi vielä Enter):");
         String authors = "";
         while(true){
-            String line = scanner.nextLine();
+            String line = io.nextInput();
             if (line.equals("")) {
                 break;
             }
@@ -84,7 +84,7 @@ public class Reference {
     
     public String askInfo(String info){
         System.out.println("Anna " + info);
-        return scanner.nextLine();
+        return io.nextInput();
     }
 
 }
