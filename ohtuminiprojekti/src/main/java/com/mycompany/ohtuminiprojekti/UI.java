@@ -8,7 +8,7 @@ package com.mycompany.ohtuminiprojekti;
 
 import com.mycompany.ohtuminiprojekti.search.ScannerSearch;
 import com.mycompany.ohtuminiprojekti.search.Search;
-import java.util.Scanner;
+import com.mycompany.ohtuminiprojekti.IO.IO;
 
 /**
  *
@@ -16,20 +16,20 @@ import java.util.Scanner;
  */
 public class UI {
     
-    private Scanner scanner;
+    private IO io;
     private Reference reference;
     
-    public UI(Scanner scanner){
-        this.scanner = scanner;
-        this.reference = new Reference(scanner);
+    public UI(IO io){
+        this.io = io;
+        this.reference = new Reference(io);
     }
     
     public void run(){
         boolean run = true;
         while (run) {
-            System.out.println("Welcome");
-            System.out.println("add, search or exit?");
-            String komento = scanner.nextLine();
+            io.output("Welcome");
+            io.output("add, search or exit?");
+            String komento = io.nextInput();
             switch (komento) {
                 case "add":
                     addReference();
@@ -45,9 +45,10 @@ public class UI {
         }
     }
 
+
     private void addReference() {
-        System.out.println("book, inproceedings or article?");
-        String komento = scanner.nextLine();
+        io.output("book, inproceedings or article?");
+        String komento = io.nextInput();
         switch (komento) {
             case "book":
                 this.reference.addBook();
@@ -67,5 +68,6 @@ public class UI {
         Search haku = new ScannerSearch();
         System.out.println(haku.search("references.txt", "author", "Halonen"));
     }
+    
     
 }

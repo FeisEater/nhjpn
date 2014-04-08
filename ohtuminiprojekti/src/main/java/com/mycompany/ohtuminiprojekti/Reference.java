@@ -1,20 +1,20 @@
 package com.mycompany.ohtuminiprojekti;
 
+import com.mycompany.ohtuminiprojekti.IO.IO;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Reference {
 
-    private final Scanner scanner;
+    private final IO io;
     private Writer writer;
     
-    public Reference(Scanner scanner) {
-        this.scanner = scanner;
+    public Reference(IO io) {
+        this.io = io;
         ArrayList<String> list = new ArrayList<>();
         try{
             writer = new TypeWriter(list);
-        } catch (IOException e){System.out.println("wrtitteria ei luotu" + e);}
+        } catch (IOException e){io.output("wrtitteria ei luotu" + e);}
     }
     
     public void addBook() {
@@ -23,7 +23,7 @@ public class Reference {
         if (getConfirmation(info)) {
             save(types, info, "@book");
         } else {
-            System.out.println("Kirjaa ei tallennettu");
+            io.output("Kirjaa ei tallennettu");
         }
     }
 
@@ -34,7 +34,7 @@ public class Reference {
         if (getConfirmation(info)) {
             save(types, info, "@inproceedings");
         } else {
-            System.out.println("Inproceedings ei tallennettu");
+            io.output("Inproceedings ei tallennettu");
         }
     }
     
@@ -44,36 +44,36 @@ public class Reference {
         if (getConfirmation(info)) {
             save(types, info, "@article");
         } else {
-            System.out.println("Inproceedings ei tallennettu");
+            io.output("Inproceedings ei tallennettu");
         }
     }
     
     public void save(String[] type, String[] info, String referenceType){
         try {
-            System.out.println("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä): ");
-            String tiedostonNimi = scanner.nextLine();
+            io.output("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä): ");
+            String tiedostonNimi = io.nextInput();
             writer.write(type, info, referenceType, tiedostonNimi + ".bib");
 
         } catch (IOException e) {
-            System.out.println("Kirjan tallennus ei onnistunut " + e);
+            io.output("Kirjan tallennus ei onnistunut " + e);
         }
     }
     
     public boolean getConfirmation(String[] info){
-        System.out.println("Annoit seuraavat tiedot:");
+        io.output("Annoit seuraavat tiedot:");
         for (String infot : info) {
-            System.out.println(infot);
+            io.output(infot);
         }
-        System.out.println("Tallennetaanko? (k/e)");
-        String save = scanner.nextLine();
+        io.output("Tallennetaanko? (k/e)");
+        String save = io.nextInput();
         return save.equals("k");
     }
     
     public String askAuthors(){
-        System.out.println("Anna kirjailija/kirjailijat (Etunimen ja sukunimen välissä paina Enter ja lopuksi vielä Enter):");
+        io.output("Anna kirjailija/kirjailijat (Etunimen ja sukunimen välissä paina Enter ja lopuksi vielä Enter):");
         String authors = "";
         while(true){
-            String line = scanner.nextLine();
+            String line = io.nextInput();
             if (line.equals("")) {
                 break;
             }
@@ -83,8 +83,8 @@ public class Reference {
     }
     
     public String askInfo(String info){
-        System.out.println("Anna " + info);
-        return scanner.nextLine();
+        io.output("Anna " + info);
+        return io.nextInput();
     }
 
 }

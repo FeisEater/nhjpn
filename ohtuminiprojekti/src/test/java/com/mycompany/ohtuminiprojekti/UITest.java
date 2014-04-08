@@ -6,6 +6,10 @@
 
 package com.mycompany.ohtuminiprojekti;
 
+import com.mycompany.ohtuminiprojekti.IO.IO;
+import com.mycompany.ohtuminiprojekti.IO.StubIO;
+import java.io.ByteArrayInputStream;
+import java.util.Scanner;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -19,7 +23,11 @@ import static org.junit.Assert.*;
  */
 public class UITest {
     
+    private UI ui;
+    private StubIO io;
+    
     public UITest() {
+        
     }
     
     @BeforeClass
@@ -32,14 +40,35 @@ public class UITest {
     
     @Before
     public void setUp() {
+        this.io = new StubIO();
+        this.ui = new UI(io);
     }
     
     @After
     public void tearDown() {
     }
 
-    //@Test
-    public void hello()
+    @Test
+    public void addRunBook()
     {
+        io.addInput("add");
+        for(int i = 0; i< 100; i++){
+            io.addInput("");
+        }
+        ui.run();
+        assertTrue("book, inproceedings or article?".equals(io.getOutput(2)));
+ 
+    }
+    
+    @Test
+    public void addRunPrintsCorrect()
+    {
+        io.addInput("add");
+        for(int i = 0; i< 100; i++){
+            io.addInput("");
+        }
+        ui.run();
+        assertTrue("Welcome".equals(io.getOutput(0)));
+ 
     }
 }

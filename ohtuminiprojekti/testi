@@ -1,0 +1,21 @@
+Book{M{"a}kinen01,
+author = {M{"a}kinen, Kalle},
+title = {Kellopeli},
+year = {2001},
+publisher = {wsoy},
+}
+
+Book{M\"{a}kinen01,
+author = {M\"{a}kinen, Kalle},
+title = {Kellopeli},
+year = {2001},
+publisher = {wsoy},
+}
+
+Book{M\"{a}kinen01,
+author = {M\"{a}kinen, Kalle},
+title = {Kellopeli},
+year = {2001},
+publisher = {wsoy},
+}
+

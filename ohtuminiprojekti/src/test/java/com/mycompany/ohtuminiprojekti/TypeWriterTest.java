@@ -3,53 +3,64 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.mycompany.ohtuminiprojekti;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertNotNull;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
  * @author hhkopper
  */
 public class TypeWriterTest {
+
     private TypeWriter t;
-    private File tempFile;
     private ArrayList<String> tagit;
-    
+    private String[] types;
+    private String[] info;
+    private String tiedostonNimi;
+    private String type;
+
     public TypeWriterTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() throws IOException {
-        tempFile = File.createTempFile("testi", "tiedosto");
         this.tagit = new ArrayList<>();
-        t = new TypeWriter(this.tagit); 
+        t = new TypeWriter(this.tagit);
+        types = new String[]{"authors", "title", "year", "publisher"};
+        info = new String[]{"Kalle Mäkinen", "Kellopeli", "2001", "wsoy"};
+        tiedostonNimi = "testi";
+        type = "Book";
+
     }
-    
+
     @After
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void tarkistetaanEttaTiedostoLuodaan() throws IOException {
+        t.write(types, info, type, tiedostonNimi);
+        File file = new File(tiedostonNimi);
+        assertNotNull(file);
+    }
+    
+
 }
