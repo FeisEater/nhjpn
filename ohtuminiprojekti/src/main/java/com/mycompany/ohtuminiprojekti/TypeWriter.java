@@ -26,6 +26,12 @@ public class TypeWriter implements Writer {
          handler = new SpecialCharacterHandler();
     }
     
+    public FileWriter getWriter() {
+        
+        return this.writer;
+        
+    }
+    
     @Override
         public void write(String[] types, String[] info, String referenceType, String tiedostonNimi) throws IOException{
         try {
