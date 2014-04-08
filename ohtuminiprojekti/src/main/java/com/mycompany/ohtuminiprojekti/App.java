@@ -1,5 +1,7 @@
 package com.mycompany.ohtuminiprojekti;
 
+import com.mycompany.ohtuminiprojekti.IO.IO;
+import com.mycompany.ohtuminiprojekti.IO.TerminalIO;
 import java.util.Scanner;
 
 /**
@@ -10,8 +12,8 @@ public class App
 {
     public static void main( String[] args )
     {
-        Scanner scanner = new Scanner(System.in);
-        UI ui = new UI(scanner);
+        IO io = new TerminalIO();
+        UI ui = new UI(io);
         ui.run();
     }
 }
