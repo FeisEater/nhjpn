@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package com.mycompany.ohtuminiprojekti;
 
@@ -17,7 +12,7 @@ import static org.junit.Assert.*;
 /**
  *
  * @author Pavel
- 
+ */
 public class FormatterTest {
     Formatter f;
     public FormatterTest() {
@@ -59,17 +54,17 @@ public class FormatterTest {
     @Test
     public void formatsTitle()
     {
-        assertTrue(f.formatTitle("booktitle").contains("title = {booktitle},"));        
+        assertTrue(f.format("title", "booktitle").contains("title = {booktitle},"));        
     }
     @Test
     public void formatsYear()
     {
-        assertTrue(f.formatYear("1994").contains("year = {1994},"));        
+        assertTrue(f.format("year", "1994").contains("year = {1994},"));        
     }
     @Test
     public void formatsPublisher()
     {
-        assertTrue(f.formatPublisher("pub").contains("publisher = {pub},"));        
+        assertTrue(f.format("publisher", "pub").contains("publisher = {pub},"));        
     }
     @Test
     public void formatsTag()
@@ -90,4 +85,3 @@ public class FormatterTest {
         assertTrue(f.formatTag(namelist, "1995"),f.formatTag(namelist, "1995").equals("abc95I"));
     }
 }
-*/
