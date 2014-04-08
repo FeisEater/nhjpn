@@ -11,8 +11,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertNotNull;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Test;
 
 /**
  *
@@ -56,7 +58,9 @@ public class TypeWriterTest {
     @Test
     public void tarkistetaanEttaTiedostoLuodaan() throws IOException {
         t.write(types, info, type, tiedostonNimi);
-        assertNotNull(t.getWriter());
+        File file = new File(tiedostonNimi);
+        assertNotNull(file);
     }
+    
 
 }

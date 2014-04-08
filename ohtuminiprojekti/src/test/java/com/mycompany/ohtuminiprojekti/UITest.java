@@ -6,6 +6,8 @@
 
 package com.mycompany.ohtuminiprojekti;
 
+import com.mycompany.ohtuminiprojekti.IO.IO;
+import com.mycompany.ohtuminiprojekti.IO.StubIO;
 import java.io.ByteArrayInputStream;
 import java.util.Scanner;
 import org.junit.After;
@@ -22,7 +24,7 @@ import static org.junit.Assert.*;
 public class UITest {
     
     private UI ui;
-    private Scanner scanner;
+    private StubIO io;
     
     public UITest() {
         
@@ -38,8 +40,10 @@ public class UITest {
     
     @Before
     public void setUp() {
-        this.scanner = new Scanner(System.in);
-        ui = new UI(scanner);
+        this.io = new StubIO();
+        this.ui = new UI(io);
+        
+
     }
     
     @After
@@ -47,11 +51,12 @@ public class UITest {
     }
 
     //@Test
-    public void addReferenceBook()
+    public void addRunBook()
     {
-        ui.addReference();
-        ByteArrayInputStream in = new ByteArrayInputStream("add".getBytes());
-        System.setIn(in);
+        io.addInput("add");
+        ui.run();
+        
+        
         
     }
 }
