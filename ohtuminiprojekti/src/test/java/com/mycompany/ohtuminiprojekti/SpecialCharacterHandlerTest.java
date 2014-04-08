@@ -35,9 +35,17 @@ public class SpecialCharacterHandlerTest {
     }
 
     @Test
-    public void replaceScandicLetters()
+    public void replaceScandicLettersAareton()
     {
-        String result = "\\" + "\"{A}" +"\\" + "\"{a}ret" + "\\" + "\"{o}n";
+        String result = "\\" + "\"{A}" + "\\" + "\"{a}ret" + "\\" + "\"{o}n";
         assertTrue(result, sch.replaceSpecialCharacters("Ääretön").equals(result));
     }
+
+    @Test
+    public void replaceScandicLettersOtokka()
+    {
+        String result = "\\" + "\"{O}" + "t" + "\\" + "\"{o}kk" + "\\" + "\"{a}";
+        assertTrue(result, sch.replaceSpecialCharacters("Ötökkä").equals(result));
+    }
+
 }
