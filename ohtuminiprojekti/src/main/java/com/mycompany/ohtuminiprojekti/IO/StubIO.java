@@ -12,9 +12,11 @@ import java.util.List;
  */
 public class StubIO implements IO {
     private Deque<String> inputList;
+    private List<String> outputList;
     public StubIO()
     {
         inputList = new ArrayDeque<String>();
+        outputList = new ArrayList<String>();
     }
     public void addInput(String input)
     {
@@ -23,6 +25,11 @@ public class StubIO implements IO {
     @Override
     public String nextInput() {
         return inputList.poll();
+    }
+
+    @Override
+    public void output(String out) {
+        outputList.add(out);
     }
     
 }

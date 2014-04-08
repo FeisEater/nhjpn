@@ -17,5 +17,10 @@ public class TerminalIO implements IO {
     public String nextInput() {
         return scanner.nextLine();
     }
+
+    @Override
+    public void output(String out) {
+        System.out.println(out);
+    }
     
 }
