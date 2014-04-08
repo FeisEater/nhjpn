@@ -6,7 +6,6 @@
 
 package com.mycompany.ohtuminiprojekti;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,12 +16,12 @@ import java.util.ArrayList;
  * 
  * Writerin toteuttava luokka, joka kirjoittaa syötetyn kirjan tiedot bibtext tiedostoon
  */
-public class BookWriter implements Writer {
+public class TypeWriter implements Writer {
     FileWriter writer;
     Formatter formatter;
     SpecialCharacterHandler handler;
 
-    public BookWriter(ArrayList<String> tags) throws IOException {
+    public TypeWriter(ArrayList<String> tags) throws IOException {
          formatter = new Formatter(tags);
          handler = new SpecialCharacterHandler();
     }
