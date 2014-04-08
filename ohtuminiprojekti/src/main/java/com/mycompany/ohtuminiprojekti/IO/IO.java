@@ -7,4 +7,5 @@ package com.mycompany.ohtuminiprojekti.IO;
  */
 public interface IO {
     public String nextInput();
+    public void output(String out);
 }

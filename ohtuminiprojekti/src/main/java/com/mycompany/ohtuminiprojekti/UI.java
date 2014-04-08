@@ -25,8 +25,8 @@ public class UI {
     public void run(){
         boolean run = true;
         while (run) {
-            System.out.println("Welcome");
-            System.out.println("add, search or exit?");
+            io.output("Welcome");
+            io.output("add, search or exit?");
             String komento = io.nextInput();
             switch (komento) {
                 case "add":
@@ -44,7 +44,7 @@ public class UI {
     }
 
     private void addReference() {
-        System.out.println("book, inproceedings or article?");
+        io.output("book, inproceedings or article?");
         String komento = io.nextInput();
         switch (komento) {
             case "book":
