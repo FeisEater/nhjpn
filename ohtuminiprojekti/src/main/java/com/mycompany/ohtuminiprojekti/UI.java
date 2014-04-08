@@ -13,7 +13,7 @@ public class UI {
         scanner = new Scanner(System.in);
         ArrayList<String> list = new ArrayList<>();
         try{
-            writer = new BookWriter(list);
+            writer = new TypeWriter(list);
         } catch (IOException e){System.out.println("wrtitteria ei luotu" + e);}
     }
     
