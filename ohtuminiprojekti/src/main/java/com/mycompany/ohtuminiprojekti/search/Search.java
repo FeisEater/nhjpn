@@ -10,6 +10,6 @@ package com.mycompany.ohtuminiprojekti.search;
  *
  * @author niko
  */
-public interface InputReader {
+public interface Search {
     public String search(String filename, String type, String keyword);
 }
