@@ -82,7 +82,7 @@ asfshd = {asfshd},
 asfdhrj = {asfdhrj},
 }
 
-Inproceedings{Sukunimioktitle,
+@Inproceedings{Sukunimioktitle,
 author = {Sukunimi, Authorit},
 title = {title},
 title = {title},
@@ -91,7 +91,7 @@ title = {title},
 title = {title},
 }
 
-Inproceedings{Sukunimioktitle,
+@Inproceedings{Sukunimioktitle,
 author = {Sukunimi, Authorit},
 title = {title},
 booktitle = {booktitle},

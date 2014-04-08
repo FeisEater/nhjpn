@@ -6,6 +6,8 @@
 
 package com.mycompany.ohtuminiprojekti;
 
+import com.mycompany.ohtuminiprojekti.search.ScannerSearch;
+import com.mycompany.ohtuminiprojekti.search.Search;
 import java.util.Scanner;
 
 /**
@@ -62,7 +64,8 @@ public class UI {
     }
 
     private void searchReference() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Search haku = new ScannerSearch();
+        System.out.println(haku.search("references.txt", "author", "Halonen"));
     }
     
 }
