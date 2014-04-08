@@ -14,10 +14,10 @@ import java.util.Scanner;
  *
  * @author niko
  */
-public class ScannerReader implements InputReader {
+public class ScannerSearch implements Search {
     String found;
     
-    public ScannerReader() {
+    public ScannerSearch() {
         found = "";
     }
     
