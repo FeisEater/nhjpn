@@ -17,7 +17,7 @@ public class Reference {
         } catch (IOException e){System.out.println("wrtitteria ei luotu" + e);}
     }
     
-    public void addKirja() {
+    public void addBook() {
         String info[] = {askAuthors(), askInfo("title"), askInfo("year"), askInfo("publisher")};
         String types[] = {"authors", "title", "year", "publisher"};
         if (getConfirmation(info)) {
