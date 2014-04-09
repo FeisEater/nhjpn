@@ -55,7 +55,7 @@ public class Reference {
             writer.write(type, info, referenceType, tiedostonNimi + ".bib");
 
         } catch (IOException e) {
-            io.output("Kirjan tallennus ei onnistunut " + e);
+            io.output("Tallennus ei onnistunut");
         }
     }
     

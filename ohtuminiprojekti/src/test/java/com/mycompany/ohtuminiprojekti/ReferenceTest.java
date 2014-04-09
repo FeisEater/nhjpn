@@ -77,14 +77,38 @@ public class ReferenceTest {
     }
     
     @Test
-    public void getConfirmationPrintsCorrect() {
+    public void addAndSaveBookReference() {
         io.addInput("");
-        String[] info = {"test1", "test2"};
-        ref.getConfirmation(info);
-        assertTrue("Annoit seuraavat tiedot:".equals(io.getOutput(0)));
-        assertTrue("test1".equals(io.getOutput(1)));
-        assertTrue("test2".equals(io.getOutput(2)));
-        assertTrue("Tallennetaanko? (k/e)".equals(io.getOutput(3)));
+        io.addInput("jotain");
+        io.addInput("jotain");
+        io.addInput("jotain");
+        io.addInput("k");
+        ref.addBook();
+        assertTrue("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä):".equals(io.getOutput(10)));
+    }
+    
+    @Test
+    public void addAndSaveArticleReference() {
+        io.addInput("");
+        io.addInput("jotain");
+        io.addInput("jotain");
+        io.addInput("jotain");
+        io.addInput("k");
+        ref.addArticle();
+        assertTrue("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä):".equals(io.getOutput(10)));
+    }
+    
+    @Test
+    public void addAndSaveInproceedingsReference() {
+        io.addInput("");
+        io.addInput("jotain");
+        io.addInput("jotain");
+        io.addInput("jotain");
+        io.addInput("jotain");
+        io.addInput("jotain");
+        io.addInput("k");
+        ref.addInproceedings();
+        assertTrue("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä):".equals(io.getOutput(14)));
     }
     
     @Test
