@@ -50,7 +50,7 @@ public class Reference {
     
     public void save(String[] type, String[] info, String referenceType){
         try {
-            io.output("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä): ");
+            io.output("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä):");
             String tiedostonNimi = io.nextInput();
             writer.write(type, info, referenceType, tiedostonNimi + ".bib");
 

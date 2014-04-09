@@ -56,11 +56,10 @@ public class TypeWriterTest {
     }
 
     @Test
-    public void tarkistetaanEttaTiedostoLuodaan() throws IOException {
-        t.write(types, info, type, tiedostonNimi);
-        File file = new File(tiedostonNimi);
-        assertNotNull(file);
+    public void tarkistetaanEttaWriterLuodaan() throws IOException {
+        assertNotNull(t);
     }
+
     
 
 }

@@ -6,6 +6,7 @@
 
 package com.mycompany.ohtuminiprojekti;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,11 +27,10 @@ public class TypeWriter implements Writer {
          handler = new SpecialCharacterHandler();
     }
     
-    public FileWriter getWriter() {
-        
-        return this.writer;
-        
+    public FileWriter getWriter() {    
+        return this.writer;  
     }
+
     
     @Override
         public void write(String[] types, String[] info, String referenceType, String tiedostonNimi) throws IOException{

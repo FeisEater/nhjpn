@@ -49,7 +49,7 @@ public class UITest {
     }
 
     @Test
-    public void addRunBook()
+    public void runAddReferencePrintsCorrect()
     {
         io.addInput("add");
         for(int i = 0; i< 100; i++){
@@ -61,7 +61,7 @@ public class UITest {
     }
     
     @Test
-    public void addRunPrintsCorrect()
+    public void runPrintsCorrect()
     {
         io.addInput("add");
         for(int i = 0; i< 100; i++){
@@ -69,6 +69,46 @@ public class UITest {
         }
         ui.run();
         assertTrue("Welcome".equals(io.getOutput(0)));
+        assertTrue("add, search or exit?".equals(io.getOutput(1)));
+ 
+    }
+    
+    @Test
+    public void runAddReferenceBookPrintsCorrect()
+    {
+        io.addInput("add");
+        io.addInput("book");
+        for(int i = 0; i< 100; i++){
+            io.addInput("");
+        }
+        ui.run();
+        assertTrue("Anna kirjailija/kirjailijat (Etunimen ja sukunimen välissä paina Enter ja lopuksi vielä Enter):".equals(io.getOutput(3)));
+ 
+    }
+    
+    @Test
+    public void runAddReferenceInproceedingsPrintsCorrect()
+    {
+        io.addInput("add");
+        io.addInput("book");
+        for(int i = 0; i< 100; i++){
+            io.addInput("");
+        }
+        ui.run();
+        assertTrue("Anna kirjailija/kirjailijat (Etunimen ja sukunimen välissä paina Enter ja lopuksi vielä Enter):".equals(io.getOutput(3)));
+ 
+    }
+    
+    @Test
+    public void runAddReferenceArticlePrintsCorrect()
+    {
+        io.addInput("add");
+        io.addInput("book");
+        for(int i = 0; i< 100; i++){
+            io.addInput("");
+        }
+        ui.run();
+        assertTrue("Anna kirjailija/kirjailijat (Etunimen ja sukunimen välissä paina Enter ja lopuksi vielä Enter):".equals(io.getOutput(3)));
  
     }
 }
