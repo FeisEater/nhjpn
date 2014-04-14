@@ -29,3 +29,30 @@ scenario "käyttäjän annettua oikeat lomaketiedot ne tulostetaan takaisin enne
         io.getOutput(11).shouldHave("Julkaisija")
     }
 }
+
+scenario "käyttäjän annettua oikeat lomaketiedot tiedoston luonti onnistuu", {
+    given 'ohjelma on käynnistetty', {
+        io = new StubIO() 
+        ui = new UI(io)
+        sc = new ScannerForTest("tiedosto.bib")
+    }
+
+    when 'oikeat tiedot on lisätty lomakkeeseen', {
+        io.addInput("add")
+        io.addInput("book")
+        io.addInput("Etunimi")
+        io.addInput("Sukunimi")
+        io.addInput("")
+        io.addInput("Kirja")
+        io.addInput("1987")
+        io.addInput("Julkaisija")
+        io.addInput("k")
+        io.addInput("tiedosto")
+        ui.run()
+    }
+
+    then 'tieto löytyy tiedostosta', {
+        sc.readFile()
+        sc.omametodi("@book").shouldBe(true)
+    }
+}
