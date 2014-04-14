@@ -77,7 +77,7 @@ public class Reference {
             if (line.equals("")) {
                 break;
             }
-            authors += line + " ";
+            authors += line + ":";
         }
         return authors;
     }
