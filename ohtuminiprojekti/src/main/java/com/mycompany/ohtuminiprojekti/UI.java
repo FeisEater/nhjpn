@@ -18,10 +18,12 @@ public class UI {
     
     private IO io;
     private Reference reference;
+    private Search haku;
     
     public UI(IO io){
         this.io = io;
         this.reference = new Reference(io);
+        this.haku = new ScannerSearch();
     }
     
     public void run(){
@@ -65,8 +67,14 @@ public class UI {
     }
 
     private void searchReference() {
-        Search haku = new ScannerSearch();
-        System.out.println(haku.search("references.txt", "author", "Halonen"));
+        io.output("Give name of the file");
+        String file = io.nextInput();
+        io.output("Give type to search for");
+        String type = io.nextInput();
+        io.output("Give keyword to search for");
+        String keyword = io.nextInput();
+        System.out.println("");
+        System.out.println(haku.search(file, type, keyword));
     }
     
     
