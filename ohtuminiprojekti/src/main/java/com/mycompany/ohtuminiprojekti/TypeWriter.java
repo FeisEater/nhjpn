@@ -39,14 +39,15 @@ public class TypeWriter implements Writer {
         } catch (IOException e) {
             writer = new FileWriter(tiedostonNimi + ".bib");
         }
-        writer.append(handler.replaceSpecialCharacters(referenceType + "{" + formatter.formatTag(info[0].split(" "), info[2]) + "," + System.getProperty("line.separator")));
-        writer.append(handler.replaceSpecialCharacters(formatter.formatAuthors(info[0].split(" "))));
+        writer.append(handler.replaceSpecialCharacters(referenceType + "{" + formatter.formatTag(info[0].split(":"), info[2]) + "," + System.getProperty("line.separator")));
+        writer.append(handler.replaceSpecialCharacters(formatter.formatAuthors(info[0].split(":"))));
         for(int i = 1; i < types.length; i ++){
             writer.append(handler.replaceSpecialCharacters(formatter.format(types[i], info[i])));
         }
         writer.append("}" + System.getProperty("line.separator") + System.getProperty("line.separator"));
         writer.close();
         System.out.println("Tiedot tallennettu onnistuneesti");
+        System.out.println("--------------------------------");
     }
 
 }

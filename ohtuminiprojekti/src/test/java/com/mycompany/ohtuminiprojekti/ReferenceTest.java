@@ -47,7 +47,7 @@ public class ReferenceTest {
     @Test
     public void addArticlePrintsCorrect() {
         for(int i = 0; i< 100; i++){
-            io.addInput("");
+            io.addInput("test");
         }
         ref.addArticle();
         assertTrue("Anna kirjailija/kirjailijat (Etunimen ja sukunimen välissä paina Enter ja lopuksi vielä Enter):".equals(io.getOutput(0)));
@@ -57,7 +57,7 @@ public class ReferenceTest {
     @Test
     public void addInproceedingsPrintsCorrect() {
         for(int i = 0; i< 100; i++){
-            io.addInput("");
+            io.addInput("test");
         }
         ref.addInproceedings();
         assertTrue("Anna kirjailija/kirjailijat (Etunimen ja sukunimen välissä paina Enter ja lopuksi vielä Enter):".equals(io.getOutput(0)));
@@ -67,7 +67,7 @@ public class ReferenceTest {
     @Test
     public void addBookPrintsCorrect() {
         for(int i = 0; i< 100; i++){
-            io.addInput("");
+            io.addInput("test");
         }
         ref.addBook();
         assertTrue("Anna kirjailija/kirjailijat (Etunimen ja sukunimen välissä paina Enter ja lopuksi vielä Enter):".equals(io.getOutput(0)));

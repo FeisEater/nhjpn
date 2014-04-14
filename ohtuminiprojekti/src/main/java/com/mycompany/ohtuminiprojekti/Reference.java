@@ -53,7 +53,7 @@ public class Reference {
             io.output("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä):");
             String tiedostonNimi = io.nextInput();
             writer.write(type, info, referenceType, tiedostonNimi + ".bib");
-            
+
         } catch (IOException e) {
             io.output("Tallennus ei onnistunut");
         }
@@ -77,19 +77,14 @@ public class Reference {
             if (line.equals("")) {
                 break;
             }
-            authors += line + " ";
+            authors += line + ":";
         }
         return authors;
     }
     
     public String askInfo(String info){
-        while(true){
-            io.output("Anna " + info);
-            String jtn = io.nextInput();
-            if(jtn.length() > 2){
-                return jtn;
-            }
-        }
+        io.output("Anna " + info);
+        return io.nextInput();
     }
 
 }
