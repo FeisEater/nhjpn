@@ -111,4 +111,17 @@ public class UITest {
         assertTrue("Anna kirjailija/kirjailijat (Etunimen ja sukunimen välissä paina Enter ja lopuksi vielä Enter):".equals(io.getOutput(3)));
  
     }
+    
+    @Test
+    public void runSearchReferencePrintsCorrect()
+    {
+        io.addInput("search");
+        for(int i = 0; i< 100; i++){
+            io.addInput("");
+        }
+        ui.run();
+        assertTrue("Give name of the file".equals(io.getOutput(2)));
+        assertTrue("Give type to search for".equals(io.getOutput(3)));
+        assertTrue("Give keyword to search for".equals(io.getOutput(4)));
+    }
 }
