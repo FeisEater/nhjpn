@@ -48,7 +48,11 @@ public class ScannerSearch implements Search {
                 } else {
                     // lisätään julkaisun tieto talteen jatkokäsittelyä varten
                     if (!line.contains("@")) {
-                        info.put(line.substring(0, line.indexOf('=')-1), line.substring(line.indexOf('{')+1, line.length()-2));
+                        if (line.charAt(0) == '%') {
+                            info.put("category", line.substring(1, line.length()));
+                        } else {
+                            info.put(line.substring(0, line.indexOf('=')-1), line.substring(line.indexOf('{')+1, line.length()-2));
+                        }
                     }
                 }
             }

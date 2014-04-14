@@ -29,7 +29,7 @@ scenario "käyttäjän annettua oikeat lomaketiedot ne tulostetaan takaisin enne
         io.getOutput(11).shouldHave("Julkaisija")
     }
 }
-
+//Tällä hetkellä kaksi samanlaista testiä
 scenario "käyttäjän annettua oikeat lomaketiedot tiedoston luonti onnistuu", {
     given 'ohjelma on käynnistetty', {
         io = new StubIO() 

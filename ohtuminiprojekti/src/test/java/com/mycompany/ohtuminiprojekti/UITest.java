@@ -6,10 +6,7 @@
 
 package com.mycompany.ohtuminiprojekti;
 
-import com.mycompany.ohtuminiprojekti.IO.IO;
 import com.mycompany.ohtuminiprojekti.IO.StubIO;
-import java.io.ByteArrayInputStream;
-import java.util.Scanner;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -90,7 +87,7 @@ public class UITest {
     public void runAddReferenceInproceedingsPrintsCorrect()
     {
         io.addInput("add");
-        io.addInput("book");
+        io.addInput("inproceedings");
         for(int i = 0; i< 100; i++){
             io.addInput("");
         }
@@ -103,12 +100,25 @@ public class UITest {
     public void runAddReferenceArticlePrintsCorrect()
     {
         io.addInput("add");
-        io.addInput("book");
+        io.addInput("article");
         for(int i = 0; i< 100; i++){
             io.addInput("");
         }
         ui.run();
         assertTrue("Anna kirjailija/kirjailijat (Etunimen ja sukunimen välissä paina Enter ja lopuksi vielä Enter):".equals(io.getOutput(3)));
  
+    }
+    
+    @Test
+    public void runSearchReferencePrintsCorrect()
+    {
+        io.addInput("search");
+        for(int i = 0; i< 100; i++){
+            io.addInput("");
+        }
+        ui.run();
+        assertTrue("Give name of the file".equals(io.getOutput(2)));
+        assertTrue("Give type to search for".equals(io.getOutput(3)));
+        assertTrue("Give keyword to search for".equals(io.getOutput(4)));
     }
 }
