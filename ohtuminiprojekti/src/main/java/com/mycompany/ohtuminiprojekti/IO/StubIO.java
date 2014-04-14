@@ -24,6 +24,7 @@ public class StubIO implements IO {
     }
     @Override
     public String nextInput() {
+        if (inputList.peek() == null)   return "";
         return inputList.poll();
     }
 

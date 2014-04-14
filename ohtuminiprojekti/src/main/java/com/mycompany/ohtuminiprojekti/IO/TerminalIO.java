@@ -9,6 +9,7 @@ import java.util.Scanner;
  */
 public class TerminalIO implements IO {
     private Scanner scanner;
+    private int i = 0;
     public TerminalIO()
     {
         scanner = new Scanner(System.in);
@@ -20,7 +21,8 @@ public class TerminalIO implements IO {
 
     @Override
     public void output(String out) {
-        System.out.println(out);
+        System.out.println(i + ": " + out);
+        i++;
     }
     
 }
