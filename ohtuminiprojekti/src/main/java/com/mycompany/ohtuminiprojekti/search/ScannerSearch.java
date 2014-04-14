@@ -36,7 +36,6 @@ public class ScannerSearch implements Search {
                 if (line.isEmpty()) {
                     continue;
                 }
-
                 // jos kyseessä julkaisun loppu
                 if (line.charAt(0) == '}') {
                     String joku = info.get(type);

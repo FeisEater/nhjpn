@@ -90,7 +90,7 @@ public class UITest {
     public void runAddReferenceInproceedingsPrintsCorrect()
     {
         io.addInput("add");
-        io.addInput("book");
+        io.addInput("inproceedings");
         for(int i = 0; i< 100; i++){
             io.addInput("");
         }
@@ -103,7 +103,7 @@ public class UITest {
     public void runAddReferenceArticlePrintsCorrect()
     {
         io.addInput("add");
-        io.addInput("book");
+        io.addInput("article");
         for(int i = 0; i< 100; i++){
             io.addInput("");
         }
