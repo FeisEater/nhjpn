@@ -56,7 +56,3 @@ scenario "käyttäjän annettua oikeat lomaketiedot tiedoston luonti onnistuu", 
         sc.omametodi("@book").shouldBe(true)
     }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 22aa79c088f714312f0ac5d31f06286b1736c8d5
