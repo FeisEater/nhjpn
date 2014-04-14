@@ -46,6 +46,7 @@ public class TypeWriter implements Writer {
         }
         writer.append("}" + System.getProperty("line.separator") + System.getProperty("line.separator"));
         writer.close();
+        System.out.println("Tiedot tallennettu onnistuneesti");
     }
 
 }
