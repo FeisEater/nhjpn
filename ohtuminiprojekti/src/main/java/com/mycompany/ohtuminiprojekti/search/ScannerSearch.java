@@ -39,7 +39,8 @@ public class ScannerSearch implements Search {
 
                 // jos kyseessä julkaisun loppu
                 if (line.charAt(0) == '}') {
-                    if (info.get(type).contains(keyword)) {
+                    String joku = info.get(type);
+                    if ( joku != null && info.get(type).contains(keyword)) {
                         stash(info);
                     }
                     info.clear();
