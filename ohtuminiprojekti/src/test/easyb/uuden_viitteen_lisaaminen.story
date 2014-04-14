@@ -29,12 +29,11 @@ scenario "käyttäjän annettua oikeat lomaketiedot ne tulostetaan takaisin enne
         io.getOutput(11).shouldHave("Julkaisija")
     }
 }
-//Tällä hetkellä kaksi samanlaista testiä
+
 scenario "käyttäjän annettua oikeat lomaketiedot tiedoston luonti onnistuu", {
     given 'ohjelma on käynnistetty', {
         io = new StubIO() 
         ui = new UI(io)
-        sc = new ScannerForTest("tiedosto.bib")
     }
 
     when 'oikeat tiedot on lisätty lomakkeeseen', {
@@ -52,7 +51,13 @@ scenario "käyttäjän annettua oikeat lomaketiedot tiedoston luonti onnistuu", 
     }
 
     then 'tieto löytyy tiedostosta', {
+        sc = new ScannerForTest("tiedosto.bib")        
         sc.readFile()
-        sc.omametodi("@book").shouldBe(true)
+        sc.contains("@book").shouldBe(true)
+        sc.contains("author = {Sukunimi, Etunimi}").shouldBe(true)
+        sc.contains("title = {Kirja}").shouldBe(true)
+        sc.contains("year = {1987}").shouldBe(true)
+        sc.contains("publisher = {Julkaisija}").shouldBe(true)
+        sc.close()
     }
 }

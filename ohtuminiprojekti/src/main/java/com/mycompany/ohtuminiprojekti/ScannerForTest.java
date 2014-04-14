@@ -12,9 +12,13 @@ import java.util.Scanner;
 public class ScannerForTest {
     private Scanner scanner;
     private String filecontent;
+    private File file;
     public ScannerForTest(String filename) throws FileNotFoundException
     {
-        scanner = new Scanner(new File(filename));
+        file = new File(filename);
+        for (int i = 0; i < 100000; i++)
+            if (file.exists())  break;
+        scanner = new Scanner(file);
     }
     public void readFile()
     {
@@ -22,8 +26,13 @@ public class ScannerForTest {
         while (scanner.hasNextLine())
             filecontent += scanner.nextLine();
     }
-    public boolean omametodi(String s)
+    public boolean contains(String s)
     {
         return filecontent.contains(s);
+    }
+    public void close()
+    {
+        scanner.close();
+        file.delete();
     }
 }
