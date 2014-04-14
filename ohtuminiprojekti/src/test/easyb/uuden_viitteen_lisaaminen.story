@@ -29,3 +29,28 @@ scenario "käyttäjän annettua oikeat lomaketiedot ne tulostetaan takaisin enne
         io.getOutput(11).shouldHave("Julkaisija")
     }
 }
+
+scenario "käyttäjän annettua oikeat lomaketiedot ja hyväksyttyä ne, ne tallentuvat tiedostoon", {
+    given 'ohjelma on käynnistynyt', {
+        io = new StubIO() 
+        ui = new UI(io)
+    }
+
+    when 'oikeat tiedot on lisätty lomakkeeseen ja hyväksytty', {
+        io.addInput("add")
+        io.addInput("book")
+        io.addInput("Etu")
+        io.addInput("Suku")
+        io.addInput("")
+        io.addInput("Nimi")
+        io.addInput("1986")
+        io.addInput("Wsoy")
+        io.addInput("k")
+        io.addInput("oma")
+        ui.run()
+    }
+
+    then 'tiedot on tallennettu tiedostoon', {
+
+    }
+}
