@@ -73,8 +73,8 @@ public class UI {
         String type = io.nextInput();
         io.output("Give keyword to search for");
         String keyword = io.nextInput();
-        System.out.println("");
-        System.out.println(haku.search(file, type, keyword));
+        io.output("");
+        io.output(haku.search(file, type, keyword));
     }
     
     
