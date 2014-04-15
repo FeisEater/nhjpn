@@ -23,7 +23,7 @@ scenario "käyttäjän annettua oikeat lomaketiedot ne tulostetaan takaisin enne
     }
 
     then 'samat tiedot tulostetaan ennen hyväksymistä', {
-        io.getOutput(8).shouldHave("Etunimi Sukunimi")
+        io.getOutput(8).shouldHave("Etunimi:Sukunimi")
         io.getOutput(9).shouldHave("Kirja")
         io.getOutput(10).shouldHave("1987")
         io.getOutput(11).shouldHave("Julkaisija")
@@ -83,7 +83,7 @@ scenario "käyttäjä antaa tiedot artikkelista ja ne tulostetaan oikein ennen h
         }
         
         then 'samat tiedot tulostetaan ennen hyväksymistä' {
-        	io.getOutput(8).shouldHave("Mina Sina")
+        	io.getOutput(8).shouldHave("Mina:Sina")
         	io.getOutput(9).shouldHave("artikkeli")
         	io.getOutput(10).shouldHave("1234")
         	io.getOutput(11).shouldHave("Julkaisija")
