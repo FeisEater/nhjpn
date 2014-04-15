@@ -42,14 +42,18 @@ scenario "lisättyä muutama viite listauskomennosta ne listataan lisäysjärjes
         io.addInput("Julkaisija3")
         io.addInput("k")
         io.addInput("tiedosto")
+        io.addInput("search")
+        io.addInput("tiedosto")
+        io.addInput("")
+        io.addInput("")
         ui.run()
     }
 
-    then 'samat tiedot tulostetaan ennen hyväksymistä', {
-        io.getOutput(8).shouldHave("Etunimi Sukunimi")
-        io.getOutput(9).shouldHave("Kirja")
-        io.getOutput(10).shouldHave("1987")
-        io.getOutput(11).shouldHave("Julkaisija")
+    then 'viitteet tulostetaan lisäämisjärjestyksessä', {
+        s = io.getOutput(51).split("author")
+        s[0].shouldHave("year: 1111")
+        s[0].shouldHave("year: 2222")
+        s[0].shouldHave("year: 3333")
     }
 }
 
