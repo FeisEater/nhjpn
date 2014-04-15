@@ -20,6 +20,7 @@ scenario "lisättyä muutama viite listauskomennosta ne listataan lisäysjärjes
         io.addInput("kirja1")
         io.addInput("1111")
         io.addInput("Julkaisija1")
+        io.addInput("")
         io.addInput("k")
         io.addInput("tiedosto")
         io.addInput("add")
@@ -30,6 +31,7 @@ scenario "lisättyä muutama viite listauskomennosta ne listataan lisäysjärjes
         io.addInput("kirja2")
         io.addInput("2222")
         io.addInput("Julkaisija2")
+        io.addInput("")
         io.addInput("k")
         io.addInput("tiedosto")
         io.addInput("add")
@@ -40,6 +42,7 @@ scenario "lisättyä muutama viite listauskomennosta ne listataan lisäysjärjes
         io.addInput("kirja3")
         io.addInput("3333")
         io.addInput("Julkaisija3")
+        io.addInput("")
         io.addInput("k")
         io.addInput("tiedosto")
         io.addInput("search")
@@ -50,9 +53,10 @@ scenario "lisättyä muutama viite listauskomennosta ne listataan lisäysjärjes
     }
 
     then 'viitteet tulostetaan lisäämisjärjestyksessä', {
-        s = io.getOutput(51).split("author")
-        s[0].shouldHave("year: 1111")
-        s[1].shouldHave("year: 2222")
-        s[2].shouldHave("year: 3333")
+        s = io.getOutput(49).split("author")
+        s[1].shouldHave("year: 1111")
+        s[2].shouldHave("year: 2222")
+        s[3].shouldHave("year: 3333")
+        sc.close()
     }
 }

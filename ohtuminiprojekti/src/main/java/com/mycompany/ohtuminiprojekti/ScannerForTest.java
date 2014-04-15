@@ -32,7 +32,7 @@ public class ScannerForTest {
     }
     public void close()
     {
-        scanner.close();
+        if (scanner != null)   scanner.close();
         file.delete();
     }
 }

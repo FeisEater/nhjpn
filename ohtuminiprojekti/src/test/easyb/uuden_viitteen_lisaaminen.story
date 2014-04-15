@@ -19,6 +19,7 @@ scenario "käyttäjän annettua oikeat lomaketiedot kirjasta ne tulostetaan taka
         io.addInput("Kirja")
         io.addInput("1987")
         io.addInput("Julkaisija")
+        io.addInput("")
         ui.run()
     }
 
@@ -46,6 +47,7 @@ scenario "käyttäjän annettua oikeat lomaketiedot tiedoston luonti onnistuu", 
         io.addInput("Kirja")
         io.addInput("1987")
         io.addInput("Julkaisija")
+        io.addInput("")
         io.addInput("k")
         io.addInput("tiedosto")
         ui.run()
@@ -77,6 +79,7 @@ scenario "käyttäjä antaa tiedot artikkelista ja ne tulostetaan oikein ennen h
         	io.addInput("artikkeli")
         	io.addInput("1234")
         	io.addInput("Julkaisija")
+                io.addInput("")
         	io.addInput("k")
         	io.addInput("tiedosto")
         	ui.run()
@@ -108,6 +111,7 @@ scenario "käyttäjän annettua oikeat artikkelin lomaketiedot tiedoston luonti 
         io.addInput("artikkeli")
         io.addInput("1234")
         io.addInput("Julkaisija")
+        io.addInput("")
         io.addInput("k")
         io.addInput("tiedosto")
         ui.run()
@@ -141,16 +145,17 @@ scenario "käyttäjä antaa tiedot inproceeding ja ne tulostetaan oikein ennen h
         	io.addInput("Maailma")
         	io.addInput("1-3")
         	io.addInput("lehti")
+                io.addInput("")
         	ui.run()
         }
         
         then 'samat tiedot tulostetaan ennen hyväksymistä', {
-        	io.getOutput(10).shouldHave("Kalle:Makinen")
-        	io.getOutput(11).shouldHave("ilmastonmuutos")
-        	io.getOutput(12).shouldHave("2000")
-        	io.getOutput(13).shouldHave("Maailma")
-        	io.getOutput(14).shouldHave("1-3")
-        	io.getOutput(15).shouldHave("lehti")
+        	io.getOutput(11).shouldHave("Kalle Makinen")
+        	io.getOutput(12).shouldHave("ilmastonmuutos")
+        	io.getOutput(13).shouldHave("2000")
+        	io.getOutput(14).shouldHave("Maailma")
+        	io.getOutput(15).shouldHave("1-3")
+        	io.getOutput(16).shouldHave("lehti")
         }
 }
 
@@ -158,6 +163,7 @@ scenario "käyttäjän annettua oikeat inproceeding lomaketiedot tiedoston luont
     given 'ohjelma on käynnistetty', {
         io = new StubIO() 
         ui = new UI(io)        
+        sc = new ScannerForTest("tiedosto.bib")
     }
 
     when 'oikeat tiedot on lisätty lomakkeeseen', {
@@ -171,12 +177,14 @@ scenario "käyttäjän annettua oikeat inproceeding lomaketiedot tiedoston luont
         io.addInput("Maailma")
         io.addInput("1-3")
         io.addInput("lehti")
+        io.addInput("")
+        io.addInput("k")
+        io.addInput("tiedosto")
         ui.run()
     }
 
     then 'tieto löytyy tiedostosta', {
                 
-        sc = new ScannerForTest("tiedosto.bib")
         sc.readFile()
         sc.contains("@inproceedings").shouldBe(true)
         sc.contains("author = {Makinen, Kalle}").shouldBe(true)
@@ -184,7 +192,7 @@ scenario "käyttäjän annettua oikeat inproceeding lomaketiedot tiedoston luont
         sc.contains("year = {2000}").shouldBe(true)
         sc.contains("booktitle = {Maailma}").shouldBe(true)
         sc.contains("pages = {1-3}").shouldBe(true)
-        sc.contains("publicher = {lehti}").shouldBe(true)
+        sc.contains("publisher = {lehti}").shouldBe(true)
         sc.close()
     }
 }
