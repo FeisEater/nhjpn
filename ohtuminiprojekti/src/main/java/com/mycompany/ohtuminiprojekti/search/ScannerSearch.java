@@ -23,14 +23,13 @@ public class ScannerSearch implements Search {
     private String found;
     
     public ScannerSearch() {
-        // yksittäisen julkaisun tiedot
-        info = new HashMap<String, String>();
         found = "";
     }
     
     @Override
     public String search(String filename, String type, String keyword) throws IOException {
         reader = new Scanner(new File(filename));
+        info = new HashMap<String, String>();
 
         while (reader.hasNextLine()) {
             line = reader.nextLine();
