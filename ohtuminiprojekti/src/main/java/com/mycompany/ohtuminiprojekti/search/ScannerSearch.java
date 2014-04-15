@@ -23,13 +23,13 @@ public class ScannerSearch implements Search {
     private String found;
     
     public ScannerSearch() {
-        found = "";
+        info = new HashMap<String, String>();
     }
     
     @Override
     public String search(String filename, String type, String keyword) throws IOException {
         reader = new Scanner(new File(filename));
-        info = new HashMap<String, String>();
+        found = "";
 
         while (reader.hasNextLine()) {
             line = reader.nextLine();
