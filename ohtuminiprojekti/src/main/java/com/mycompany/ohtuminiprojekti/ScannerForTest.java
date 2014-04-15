@@ -13,15 +13,15 @@ public class ScannerForTest {
     private Scanner scanner;
     private String filecontent;
     private File file;
-    public ScannerForTest(String filename) throws FileNotFoundException
+    public ScannerForTest(String filename)
     {
         file = new File(filename);
+    }
+    public void readFile() throws FileNotFoundException
+    {
         for (int i = 0; i < 100000; i++)
             if (file.exists())  break;
         scanner = new Scanner(file);
-    }
-    public void readFile()
-    {
         filecontent = "";
         while (scanner.hasNextLine())
             filecontent += scanner.nextLine();
