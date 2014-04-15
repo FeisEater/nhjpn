@@ -9,6 +9,7 @@ package com.mycompany.ohtuminiprojekti;
 import com.mycompany.ohtuminiprojekti.search.ScannerSearch;
 import com.mycompany.ohtuminiprojekti.search.Search;
 import com.mycompany.ohtuminiprojekti.IO.IO;
+import java.io.IOException;
 
 /**
  *
@@ -74,7 +75,11 @@ public class UI {
         io.output("Give keyword to search for");
         String keyword = io.nextInput();
         System.out.println("");
-        System.out.println(haku.search(file, type, keyword));
+        try {
+            System.out.println(haku.search(file, type, keyword));
+        } catch (IOException e) {
+            System.out.println("Virhe haussa!" + e.getMessage());
+        }
     }
     
     
