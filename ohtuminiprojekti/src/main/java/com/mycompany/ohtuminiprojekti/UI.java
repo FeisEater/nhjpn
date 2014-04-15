@@ -9,7 +9,6 @@ package com.mycompany.ohtuminiprojekti;
 import com.mycompany.ohtuminiprojekti.search.ScannerSearch;
 import com.mycompany.ohtuminiprojekti.search.Search;
 import com.mycompany.ohtuminiprojekti.IO.IO;
-import java.io.IOException;
 
 /**
  *
@@ -72,14 +71,14 @@ public class UI {
         String file = io.nextInput();
         io.output("Give type to search for");
         String type = io.nextInput();
+        if(type.equals("")){
+             io.output(haku.search(file + ".bib", "author", ""));
+             return;
+        }
         io.output("Give keyword to search for");
         String keyword = io.nextInput();
         io.output("");
-        try {
-            io.output(haku.search(file + ".bib", type, keyword));
-        } catch (IOException e) {
-            io.output("Virhe haussa!" + e.getMessage());
-        }
+        io.output(haku.search(file + ".bib", type, keyword));
     }
     
     
