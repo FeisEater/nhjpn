@@ -61,3 +61,26 @@ scenario "käyttäjän annettua oikeat lomaketiedot tiedoston luonti onnistuu", 
         sc.close()
     }
 }
+
+scenario "käyttäjä antaa tiedot artikkelista ja ne tulostetaan oikein ennen hyväksymistä", {
+	given 'ohjelma on käynnistynyt', {
+		io = new StubIO() 
+        	ui = new UI(io)
+        }
+        
+        when 'oikeat tiedot on lisätty lomakkeeseen', {
+        	io.addInput("add")
+        	io.addInput("article")
+        	io.addInput("Mina")
+        	io.addInput("Sina")
+        	io.addInput("")
+        	io.addInput("artikkeli")
+        	io.addInput("1234")
+        	io.addInput("Julkaisija")
+        	io.addInput("k")
+        	io.addInput("tiedosto")
+        	ui.run()
+        }
+        
+        then 'samat tiedot tulostetaan ennen hyväksymistä' {
+        
