@@ -34,6 +34,7 @@ scenario "käyttäjän annettua oikeat lomaketiedot tiedoston luonti onnistuu", 
     given 'ohjelma on käynnistetty', {
         io = new StubIO() 
         ui = new UI(io)
+        sc = new ScannerForTest("tiedosto.bib")
     }
 
     when 'oikeat tiedot on lisätty lomakkeeseen', {
@@ -51,7 +52,6 @@ scenario "käyttäjän annettua oikeat lomaketiedot tiedoston luonti onnistuu", 
     }
 
     then 'tieto löytyy tiedostosta', {
-        sc = new ScannerForTest("tiedosto.bib")        
         sc.readFile()
         sc.contains("@book").shouldBe(true)
         sc.contains("author = {Sukunimi, Etunimi}").shouldBe(true)
