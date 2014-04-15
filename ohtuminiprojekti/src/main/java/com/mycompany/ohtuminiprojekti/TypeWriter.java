@@ -33,7 +33,7 @@ public class TypeWriter implements Writer {
 
     
     @Override
-        public void write(String[] types, String[] info, String referenceType, String tiedostonNimi) throws IOException{
+        public void write(String[] types, String[] info, String referenceType, String tiedostonNimi, String category) throws IOException{
         try {
             writer = new FileWriter(tiedostonNimi, true);
         } catch (IOException e) {
@@ -43,6 +43,10 @@ public class TypeWriter implements Writer {
         writer.append(handler.replaceSpecialCharacters(formatter.formatAuthors(info[0].split(":"))));
         for(int i = 1; i < types.length; i ++){
             writer.append(handler.replaceSpecialCharacters(formatter.format(types[i], info[i])));
+        }
+        if(!category.equals("%")){
+            writer.append(handler.replaceSpecialCharacters(category));
+            writer.append(System.getProperty("line.separator")); 
         }
         writer.append("}" + System.getProperty("line.separator") + System.getProperty("line.separator"));
         writer.close();
