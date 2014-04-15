@@ -6,10 +6,7 @@
 
 package com.mycompany.ohtuminiprojekti;
 
-import com.mycompany.ohtuminiprojekti.IO.IO;
 import com.mycompany.ohtuminiprojekti.IO.StubIO;
-import java.io.ByteArrayInputStream;
-import java.util.Scanner;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

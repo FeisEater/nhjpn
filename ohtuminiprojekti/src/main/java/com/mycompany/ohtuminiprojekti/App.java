@@ -2,7 +2,6 @@ package com.mycompany.ohtuminiprojekti;
 
 import com.mycompany.ohtuminiprojekti.IO.IO;
 import com.mycompany.ohtuminiprojekti.IO.TerminalIO;
-import java.util.Scanner;
 
 /**
  * Hello world!

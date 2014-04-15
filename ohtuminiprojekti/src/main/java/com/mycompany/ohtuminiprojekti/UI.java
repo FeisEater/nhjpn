@@ -76,7 +76,7 @@ public class UI {
         String keyword = io.nextInput();
         System.out.println("");
         try {
-            System.out.println(haku.search(file, type, keyword));
+            System.out.println(haku.search(file + ".bib", type, keyword));
         } catch (IOException e) {
             System.out.println("Virhe haussa!" + e.getMessage());
         }
