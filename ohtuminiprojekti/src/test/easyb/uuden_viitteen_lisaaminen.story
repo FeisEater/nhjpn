@@ -4,7 +4,7 @@ import com.mycompany.ohtuminiprojekti.search.*
 
 description 'Käyttäjänä voin lisätä uuden viitteen'
 
-scenario "käyttäjän annettua oikeat lomaketiedot ne tulostetaan takaisin ennen hyväksymistä", {
+scenario "käyttäjän annettua oikeat lomaketiedot kirjasta ne tulostetaan takaisin ennen hyväksymistä", {
     given 'ohjelma on käynnistetty', {
         io = new StubIO() 
         ui = new UI(io)
@@ -82,7 +82,7 @@ scenario "käyttäjä antaa tiedot artikkelista ja ne tulostetaan oikein ennen h
         	ui.run()
         }
         
-        then 'samat tiedot tulostetaan ennen hyväksymistä' {
+        then 'samat tiedot tulostetaan ennen hyväksymistä', {
         	io.getOutput(8).shouldHave("Mina:Sina")
         	io.getOutput(9).shouldHave("artikkeli")
         	io.getOutput(10).shouldHave("1234")
@@ -117,7 +117,72 @@ scenario "käyttäjän annettua oikeat artikkelin lomaketiedot tiedoston luonti 
         sc.contains("author = {Sina, Mina}").shouldBe(true)
         sc.contains("title = {artikkeli}").shouldBe(true)
         sc.contains("year = {1234}").shouldBe(true)
-        sc.contains("publisher = {Julkaisija}").shouldBe(true)
+        sc.contains("journal = {Julkaisija}").shouldBe(true)
+        sc.close()
+    }
+}
+
+scenario "käyttäjä antaa tiedot inproceeding ja ne tulostetaan oikein ennen hyväksymistä", {
+	given 'ohjelma on käynnistetty', {
+		io = new StubIO() 
+        	ui = new UI(io)
+        }
+        
+        when 'oikeat tiedot lisätty lomakkeeseen', {
+        	io.addInput("add")
+        	io.addInput("inproceedings")
+        	io.addInput("Kalle")
+        	io.addInput("Makinen")
+        	io.addInput("")
+        	io.addInput("ilmastonmuutos")
+        	io.addInput("2000")
+        	io.addInput("Maailma")
+        	io.addInput("1-3")
+        	io.addInput("lehti")
+        	ui.run()
+        }
+        
+        then 'samat tiedot tulostetaan ennen hyväksymistä', {
+        	io.getOutput(10).shouldHave("Kalle:Makinen")
+        	io.getOutput(11).shouldHave("ilmastonmuutos")
+        	io.getOutput(12).shouldHave("2000")
+        	io.getOutput(13).shouldHave("Maailma")
+        	io.getOutput(14).shouldHave("1-3")
+        	io.getOutput(15).shouldHave("lehti")
+        }
+}
+
+scenario "käyttäjän annettua oikeat inproceeding lomaketiedot tiedoston luonti onnistuu", {
+    given 'ohjelma on käynnistetty', {
+        io = new StubIO() 
+        ui = new UI(io)        
+    }
+
+    when 'oikeat tiedot on lisätty lomakkeeseen', {
+        io.addInput("add")
+        io.addInput("inproceedings")
+        io.addInput("Kalle")
+        io.addInput("Makinen")
+        io.addInput("")
+        io.addInput("ilmastonmuutos")
+        io.addInput("2000")
+        io.addInput("Maailma")
+        io.addInput("1-3")
+        io.addInput("lehti")
+        ui.run()
+    }
+
+    then 'tieto löytyy tiedostosta', {
+                
+        sc = new ScannerForTest("tiedosto.bib")
+        sc.readFile()
+        sc.contains("@inproceedings").shouldBe(true)
+        sc.contains("author = {Makinen, Kalle}").shouldBe(true)
+        sc.contains("title = {ilmastonmuutos}").shouldBe(true)
+        sc.contains("year = {2000}").shouldBe(true)
+        sc.contains("booktitle = {Maailma}").shouldBe(true)
+        sc.contains("pages = {1-3}").shouldBe(true)
+        sc.contains("publicher = {lehti}").shouldBe(true)
         sc.close()
     }
 }
