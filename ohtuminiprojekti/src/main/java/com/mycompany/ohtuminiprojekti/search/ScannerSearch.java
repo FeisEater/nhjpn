@@ -7,6 +7,7 @@
 package com.mycompany.ohtuminiprojekti.search;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,9 +28,8 @@ public class ScannerSearch implements Search {
     }
     
     @Override
-    public String search(String filename, String type, String keyword) throws IOException {
-        reader = new Scanner(new File(filename));
-        found = "";
+    public String search(String filename, String type, String keyword) {
+        initialize(filename);
 
         while (reader.hasNextLine()) {
             line = reader.nextLine();
@@ -40,6 +40,15 @@ public class ScannerSearch implements Search {
         }
         
         return found;
+    }
+    
+    private void initialize(String filename) {
+        try {
+            reader = new Scanner(new File(filename));
+        } catch (FileNotFoundException e) {
+            System.out.println("Virhe haussa! " + e.getMessage());
+        }
+        found = "";
     }
     
     private void stash(Map<String, String> info) {

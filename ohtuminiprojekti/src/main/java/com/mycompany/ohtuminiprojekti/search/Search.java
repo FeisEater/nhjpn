@@ -13,5 +13,5 @@ import java.io.IOException;
  * @author niko
  */
 public interface Search {
-    public String search(String filename, String type, String keyword) throws IOException;
+    public String search(String filename, String type, String keyword);
 }
