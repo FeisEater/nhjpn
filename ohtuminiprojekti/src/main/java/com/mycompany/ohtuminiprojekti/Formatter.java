@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 /**
  *
- * @author niko Metodeja, jotka saavat syötteenä esim kirjailijat tai
- * julkaisuvuoden ja muotoilevat sen bibtext tiedoston edellyttämään muotoon
+ * @author niko Luokka, joka huolehtii syötteiden käsittelystä bibtexin
+ * edellyttämään muotoon.
  */
 public class Formatter {
 
@@ -16,12 +16,12 @@ public class Formatter {
     }
 
     /**
-     * Luo uniikin tagin kirjailijan/kirjailijoiden nimen ja julkaisuvuoden
-     * perusteella
+     * Luo julkaisulle uniikin tagin kirjailijan/kirjailijoiden nimen ja
+     * julkaisuvuoden perusteella.
      *
-     * @param nameList kirjailijoiden nimet
-     * @param year julkaisuvuosi
-     * @return
+     * @param nameList Kirjailijoiden nimet.
+     * @param year Julkaisuvuosi.
+     * @return Palauttaa luodun tagin.
      */
     public String formatTag(String[] nameList, String year) {
         year = year.substring(2);
@@ -48,7 +48,7 @@ public class Formatter {
      * Tarkistaa onko luotu tagi jo käytetty
      *
      * @param tag Tarkistettava luotu tagi
-     * @return
+     * @return Palauttaa true jos käytetty, false jos vapaana.
      */
     private boolean tagIsUsed(String tag) {
         if (tags.contains(tag)) {
@@ -58,6 +58,14 @@ public class Formatter {
         return false;
     }
 
+    /**
+     * Julkaisijat vaativat hiukat enemmän käsittelyä, sillä heitä voi
+     * olla useampi kappale, joten tämä metodi huolehtii sen kohdan
+     * käsittelystä.
+     * 
+     * @param nameList
+     * @return 
+     */
     public String formatAuthors(String[] nameList) {
         String authors = "author = {";
 
@@ -76,7 +84,14 @@ public class Formatter {
         return authors;
     }
 
-    
+    /**
+     * Metodi huolehtii kaikkien muiden paitsi julkaisijoiden
+     * muotoilusta, sillä ne tulevat bibtexiin aivan samassa muodossa.
+     *
+     * @param type Tiedon tyyppi (esim. author, title).
+     * @param info Tallennettava tieto (esim. vuosiluku, kirjan nimi).
+     * @return Palauttaa muotoillun merkkijonon.
+     */
     public String format(String type, String info) {
         return type + " = {" + info + "}," + System.getProperty("line.separator");
     }
