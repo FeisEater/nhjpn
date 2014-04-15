@@ -72,14 +72,14 @@ public class UI {
         String file = io.nextInput();
         io.output("Give type to search for");
         String type = io.nextInput();
+        if(type.equals("")){
+             System.out.println(haku.search(file + ".bib", "author", ""));
+             return;
+        }
         io.output("Give keyword to search for");
         String keyword = io.nextInput();
         System.out.println("");
-        try {
-            System.out.println(haku.search(file + ".bib", type, keyword));
-        } catch (IOException e) {
-            System.out.println("Virhe haussa!" + e.getMessage());
-        }
+        System.out.println(haku.search(file + ".bib", type, keyword));
     }
     
     
