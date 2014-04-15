@@ -65,7 +65,7 @@ public class Reference {
     public boolean getConfirmation(String[] info){
         io.output("Annoit seuraavat tiedot:");
         for (String infot : info) {
-            io.output(infot);
+            io.output(infot.replace(":", " "));
         }
         io.output("Tallennetaanko? (k/e)");
         String save = io.nextInput();
