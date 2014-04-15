@@ -20,8 +20,9 @@ public class Reference {
     public void addBook() {
         String info[] = {askAuthors(), askInfo("title"), askInfo("year"), askInfo("publisher")};
         String types[] = {"authors", "title", "year", "publisher"};
+        String category = askCategory();
         if (getConfirmation(info)) {
-            save(types, info, "@book");
+            save(types, info, "@book", category);
         } else {
             io.output("Kirjaa ei tallennettu");
         }
@@ -31,8 +32,9 @@ public class Reference {
     public void addInproceedings() {
         String info[] = {askAuthors() ,askInfo("title"),askInfo("year"),askInfo("booktitle"),askInfo("pages"),askInfo("publisher")};
         String types[] = {"authors", "title", "year", "booktitle", "pages", "publisher"};
+        String category = askCategory();
         if (getConfirmation(info)) {
-            save(types, info, "@inproceedings");
+            save(types, info, "@inproceedings", category);
         } else {
             io.output("Inproceedings ei tallennettu");
         }
@@ -41,18 +43,19 @@ public class Reference {
     public void addArticle() {
         String info[] = {askAuthors() ,askInfo("title"),askInfo("year"),askInfo("journal")};
         String types[] = {"authors", "title", "year", "journal"};
+        String category = askCategory();
         if (getConfirmation(info)) {
-            save(types, info, "@article");
+            save(types, info, "@article", category);
         } else {
             io.output("Inproceedings ei tallennettu");
         }
     }
     
-    public void save(String[] type, String[] info, String referenceType){
+    public void save(String[] type, String[] info, String referenceType, String category){
         try {
             io.output("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä):");
             String tiedostonNimi = io.nextInput();
-            writer.write(type, info, referenceType, tiedostonNimi + ".bib");
+            writer.write(type, info, referenceType, tiedostonNimi + ".bib", category);
 
         } catch (IOException e) {
             io.output("Tallennus ei onnistunut");
@@ -62,7 +65,7 @@ public class Reference {
     public boolean getConfirmation(String[] info){
         io.output("Annoit seuraavat tiedot:");
         for (String infot : info) {
-            io.output(infot);
+            io.output(infot.replace(":", " "));
         }
         io.output("Tallennetaanko? (k/e)");
         String save = io.nextInput();
@@ -85,6 +88,11 @@ public class Reference {
     public String askInfo(String info){
         io.output("Anna " + info);
         return io.nextInput();
+    }
+
+    private String askCategory() {
+        io.output("Category(optional):");
+        return "%" + io.nextInput();
     }
 
 }

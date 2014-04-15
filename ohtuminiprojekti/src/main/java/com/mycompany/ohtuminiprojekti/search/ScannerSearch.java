@@ -17,47 +17,26 @@ import java.util.Scanner;
  * @author niko
  */
 public class ScannerSearch implements Search {
-    String found;
+    private Scanner reader;
+    private Map<String, String> info;
+    private String line;
+    private String found;
     
     public ScannerSearch() {
-        found = "";
+        info = new HashMap<String, String>();
     }
     
     @Override
-    public String search(String filename, String type, String keyword) {
-        try {
-            Scanner reader = new Scanner(new File(filename));
-            // yksittäisen julkaisun tiedot
-            Map<String, String> info = new HashMap<String, String>();
+    public String search(String filename, String type, String keyword) throws IOException {
+        reader = new Scanner(new File(filename));
+        found = "";
 
-            while (reader.hasNextLine()) {
-                String line = reader.nextLine();
-                
-                if (line.isEmpty()) {
-                    continue;
-                }
-
-                // jos kyseessä julkaisun loppu
-                if (line.charAt(0) == '}') {
-                    String joku = info.get(type);
-                    if ( joku != null && info.get(type).contains(keyword)) {
-                        stash(info);
-                    }
-                    info.clear();
-                    reader.nextLine();
-                } else {
-                    // lisätään julkaisun tieto talteen jatkokäsittelyä varten
-                    if (!line.contains("@")) {
-                        if (line.charAt(0) == '%') {
-                            info.put("category", line.substring(1, line.length()));
-                        } else {
-                            info.put(line.substring(0, line.indexOf('=')-1), line.substring(line.indexOf('{')+1, line.length()-2));
-                        }
-                    }
-                }
+        while (reader.hasNextLine()) {
+            line = reader.nextLine();
+            if (line.isEmpty()) {
+                continue;
             }
-        } catch (IOException e) {
-            System.out.println("Virhe haussa! " + e.getMessage());
+            checkLine(type, keyword);
         }
         
         return found;
@@ -69,5 +48,31 @@ public class ScannerSearch implements Search {
             
         }
         found += System.getProperty("line.separator");
+    }
+    
+    private void handleLastLineOfReference(String type, String keyword) {
+        String joku = info.get(type);
+        if (joku != null && info.get(type).contains(keyword)) {
+            stash(info);
+        }
+        info.clear();
+    }
+    
+    private void addSingleLineOfReference() {
+        if (!line.contains("@")) {
+            if (line.charAt(0) == '%') {
+                info.put("category", line.substring(1, line.length()));
+            } else {
+                info.put(line.substring(0, line.indexOf('=')-1), line.substring(line.indexOf('{')+1, line.length()-2));
+            }
+        }
+    }
+    
+    private void checkLine(String type, String keyword) {
+        if (line.charAt(0) == '}') {
+            handleLastLineOfReference(type, keyword);
+        } else {
+            addSingleLineOfReference();
+        }
     }
 }
