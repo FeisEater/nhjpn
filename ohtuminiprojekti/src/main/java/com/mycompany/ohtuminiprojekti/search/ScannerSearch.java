@@ -8,13 +8,15 @@ package com.mycompany.ohtuminiprojekti.search;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 /**
- *
+ * Julkaisujen tietojen hakemisesta huolehtiva luokka. Hakee jonkin 
+ * tietotyypin (esim.author, title) ja sieltä etsittävän sanan perusteella ja
+ * palauttaa merkkijonona osumat.
+ * 
  * @author niko
  */
 public class ScannerSearch implements Search {
@@ -27,6 +29,15 @@ public class ScannerSearch implements Search {
         info = new HashMap<String, String>();
     }
     
+    /**
+     * Haun kokonaisuutta pyörittävä metodi. Käy annetun tiedoston läpi
+     * rivi riviltä.
+     * 
+     * @param filename Tiedosto, josta etsitään.
+     * @param type Tietotyyppi, johon hakusana kohdistetaan.
+     * @param keyword Käytettävä hakusana.
+     * @return Palauttaa merkkijonoesityksen osumista.
+     */
     @Override
     public String search(String filename, String type, String keyword) {
         initialize(filename);
@@ -42,6 +53,11 @@ public class ScannerSearch implements Search {
         return found;
     }
     
+    /**
+     * Alustaa scannerin ja tyhjentää edellisen haun osumat.
+     * 
+     * @param filename Tiedosto, josta etsitään.
+     */
     private void initialize(String filename) {
         try {
             reader = new Scanner(new File(filename));
@@ -51,6 +67,11 @@ public class ScannerSearch implements Search {
         found = "";
     }
     
+    /**
+     * Lisää osumat palautettavaan merkkijonoon.
+     * 
+     * @param info 
+     */
     private void stash(Map<String, String> info) {
         for (String key : info.keySet()) {
             found += key + ": " + info.get(key) + System.getProperty("line.separator");
@@ -59,6 +80,15 @@ public class ScannerSearch implements Search {
         found += System.getProperty("line.separator");
     }
     
+    /**
+     * Hoitaa tilanteen, kun ollaan saavuttu yksittäisen julkaisun
+     * viimeiselle riville. Laitetaan julkaisu talteen merkkijonoomme, jos
+     * osuma ja tyhjennetään mapistamme tämän julkaisun tiedot, jotta saadaan
+     * seuraava tilalle.
+     * 
+     * @param type Tietotyyppi, johon hakusana kohdistetaan.
+     * @param keyword Käytettävä hakusana.
+     */
     private void handleLastLineOfReference(String type, String keyword) {
         String joku = info.get(type);
         if (joku != null && info.get(type).contains(keyword)) {
@@ -67,6 +97,10 @@ public class ScannerSearch implements Search {
         info.clear();
     }
     
+    /**
+     * Lisätään käsiteltävä rivi mappiimme, josta se on helppo hakea
+     * palautettavaan merkkijonoomme lisättäväksi, jos saamme osuman.
+     */
     private void addSingleLineOfReference() {
         if (!line.contains("@")) {
             if (line.charAt(0) == '%') {
@@ -77,6 +111,13 @@ public class ScannerSearch implements Search {
         }
     }
     
+    /**
+     * Tarkistetaan onko kyseessä yksittäisen julkaisun viimeinen rivi
+     * vai joku käsiteltävistä riveistä.
+     * 
+     * @param type Tietotyyppi, johon hakusana kohdistetaan.
+     * @param keyword Käytettävä hakusana.
+     */
     private void checkLine(String type, String keyword) {
         if (line.charAt(0) == '}') {
             handleLastLineOfReference(type, keyword);

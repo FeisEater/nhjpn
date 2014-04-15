@@ -9,7 +9,6 @@ package com.mycompany.ohtuminiprojekti;
 import com.mycompany.ohtuminiprojekti.search.ScannerSearch;
 import com.mycompany.ohtuminiprojekti.search.Search;
 import com.mycompany.ohtuminiprojekti.IO.IO;
-import java.io.IOException;
 
 /**
  *

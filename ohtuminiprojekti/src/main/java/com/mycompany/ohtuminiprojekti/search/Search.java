@@ -6,8 +6,6 @@
 
 package com.mycompany.ohtuminiprojekti.search;
 
-import java.io.IOException;
-
 /**
  *
  * @author niko
