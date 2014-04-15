@@ -7,67 +7,122 @@
 package com.mycompany.ohtuminiprojekti.search;
 
 import java.io.File;
-import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 /**
- *
+ * Julkaisujen tietojen hakemisesta huolehtiva luokka. Hakee jonkin 
+ * tietotyypin (esim.author, title) ja sieltä etsittävän sanan perusteella ja
+ * palauttaa merkkijonona osumat.
+ * 
  * @author niko
  */
 public class ScannerSearch implements Search {
-    String found;
+    private Scanner reader;
+    private Map<String, String> info;
+    private String line;
+    private String found;
     
     public ScannerSearch() {
-        found = "";
+        info = new HashMap<String, String>();
     }
     
+    /**
+     * Haun kokonaisuutta pyörittävä metodi. Käy annetun tiedoston läpi
+     * rivi riviltä.
+     * 
+     * @param filename Tiedosto, josta etsitään.
+     * @param type Tietotyyppi, johon hakusana kohdistetaan.
+     * @param keyword Käytettävä hakusana.
+     * @return Palauttaa merkkijonoesityksen osumista.
+     */
     @Override
     public String search(String filename, String type, String keyword) {
-        try {
-            Scanner reader = new Scanner(new File(filename));
-            // yksittäisen julkaisun tiedot
-            Map<String, String> info = new HashMap<String, String>();
+        initialize(filename);
 
-            while (reader.hasNextLine()) {
-                String line = reader.nextLine();
-                
-                if (line.isEmpty()) {
-                    continue;
-                }
-
-                // jos kyseessä julkaisun loppu
-                if (line.charAt(0) == '}') {
-                    String joku = info.get(type);
-                    if ( joku != null && info.get(type).contains(keyword)) {
-                        stash(info);
-                    }
-                    info.clear();
-                    reader.nextLine();
-                } else {
-                    // lisätään julkaisun tieto talteen jatkokäsittelyä varten
-                    if (!line.contains("@")) {
-                        if (line.charAt(0) == '%') {
-                            info.put("category", line.substring(1, line.length()));
-                        } else {
-                            info.put(line.substring(0, line.indexOf('=')-1), line.substring(line.indexOf('{')+1, line.length()-2));
-                        }
-                    }
-                }
+        while (reader.hasNextLine()) {
+            line = reader.nextLine();
+            if (line.isEmpty()) {
+                continue;
             }
-        } catch (IOException e) {
-            System.out.println("Virhe haussa! " + e.getMessage());
+            checkLine(type, keyword);
         }
         
         return found;
     }
     
+    /**
+     * Alustaa scannerin ja tyhjentää edellisen haun osumat.
+     * 
+     * @param filename Tiedosto, josta etsitään.
+     */
+    private void initialize(String filename) {
+        try {
+            reader = new Scanner(new File(filename));
+        } catch (FileNotFoundException e) {
+            System.out.println("Virhe haussa! " + e.getMessage());
+        }
+        found = "";
+    }
+    
+    /**
+     * Lisää osumat palautettavaan merkkijonoon.
+     * 
+     * @param info 
+     */
     private void stash(Map<String, String> info) {
         for (String key : info.keySet()) {
             found += key + ": " + info.get(key) + System.getProperty("line.separator");
             
         }
         found += System.getProperty("line.separator");
+    }
+    
+    /**
+     * Hoitaa tilanteen, kun ollaan saavuttu yksittäisen julkaisun
+     * viimeiselle riville. Laitetaan julkaisu talteen merkkijonoomme, jos
+     * osuma ja tyhjennetään mapistamme tämän julkaisun tiedot, jotta saadaan
+     * seuraava tilalle.
+     * 
+     * @param type Tietotyyppi, johon hakusana kohdistetaan.
+     * @param keyword Käytettävä hakusana.
+     */
+    private void handleLastLineOfReference(String type, String keyword) {
+        String joku = info.get(type);
+        if (joku != null && info.get(type).contains(keyword)) {
+            stash(info);
+        }
+        info.clear();
+    }
+    
+    /**
+     * Lisätään käsiteltävä rivi mappiimme, josta se on helppo hakea
+     * palautettavaan merkkijonoomme lisättäväksi, jos saamme osuman.
+     */
+    private void addSingleLineOfReference() {
+        if (!line.contains("@")) {
+            if (line.charAt(0) == '%') {
+                info.put("category", line.substring(1, line.length()));
+            } else {
+                info.put(line.substring(0, line.indexOf('=')-1), line.substring(line.indexOf('{')+1, line.length()-2));
+            }
+        }
+    }
+    
+    /**
+     * Tarkistetaan onko kyseessä yksittäisen julkaisun viimeinen rivi
+     * vai joku käsiteltävistä riveistä.
+     * 
+     * @param type Tietotyyppi, johon hakusana kohdistetaan.
+     * @param keyword Käytettävä hakusana.
+     */
+    private void checkLine(String type, String keyword) {
+        if (line.charAt(0) == '}') {
+            handleLastLineOfReference(type, keyword);
+        } else {
+            addSingleLineOfReference();
+        }
     }
 }

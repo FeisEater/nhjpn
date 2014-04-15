@@ -51,9 +51,10 @@ public class ReferenceTest {
         }
         ref.addArticle();
         assertTrue("Anna kirjailija/kirjailijat (Etunimen ja sukunimen välissä paina Enter ja lopuksi vielä Enter):".equals(io.getOutput(0)));
-        assertTrue("Annoit seuraavat tiedot:".equals(io.getOutput(4)));
-        assertTrue("Tallennetaanko? (k/e)".equals(io.getOutput(9)));
+        assertTrue("Annoit seuraavat tiedot:".equals(io.getOutput(5)));
+        assertTrue("Tallennetaanko? (k/e)".equals(io.getOutput(10)));
     }
+    
     @Test
     public void addInproceedingsPrintsCorrect() {
         for(int i = 0; i< 100; i++){
@@ -61,8 +62,8 @@ public class ReferenceTest {
         }
         ref.addInproceedings();
         assertTrue("Anna kirjailija/kirjailijat (Etunimen ja sukunimen välissä paina Enter ja lopuksi vielä Enter):".equals(io.getOutput(0)));
-        assertTrue("Annoit seuraavat tiedot:".equals(io.getOutput(6)));
-        assertTrue("Tallennetaanko? (k/e)".equals(io.getOutput(13)));
+        assertTrue("Annoit seuraavat tiedot:".equals(io.getOutput(7)));
+        assertTrue("Tallennetaanko? (k/e)".equals(io.getOutput(14)));
     }
     @Test
     public void addBookPrintsCorrect() {
@@ -71,8 +72,8 @@ public class ReferenceTest {
         }
         ref.addBook();
         assertTrue("Anna kirjailija/kirjailijat (Etunimen ja sukunimen välissä paina Enter ja lopuksi vielä Enter):".equals(io.getOutput(0)));
-        assertTrue("Annoit seuraavat tiedot:".equals(io.getOutput(4)));
-        assertTrue("Tallennetaanko? (k/e)".equals(io.getOutput(9)));
+        assertTrue("Annoit seuraavat tiedot:".equals(io.getOutput(5)));
+        assertTrue("Tallennetaanko? (k/e)".equals(io.getOutput(10)));
 
     }
     
@@ -82,9 +83,10 @@ public class ReferenceTest {
         io.addInput("jotain");
         io.addInput("jotain");
         io.addInput("jotain");
+        io.addInput("jotain");
         io.addInput("k");
         ref.addBook();
-        assertTrue("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä):".equals(io.getOutput(10)));
+        assertTrue("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä):".equals(io.getOutput(11)));
     }
     
     @Test
@@ -93,9 +95,10 @@ public class ReferenceTest {
         io.addInput("jotain");
         io.addInput("jotain");
         io.addInput("jotain");
+        io.addInput("jotain");
         io.addInput("k");
         ref.addArticle();
-        assertTrue("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä):".equals(io.getOutput(10)));
+        assertTrue("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä):".equals(io.getOutput(11)));
     }
     
     @Test
@@ -106,9 +109,10 @@ public class ReferenceTest {
         io.addInput("jotain");
         io.addInput("jotain");
         io.addInput("jotain");
+        io.addInput("jotain");
         io.addInput("k");
         ref.addInproceedings();
-        assertTrue("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä):".equals(io.getOutput(14)));
+        assertTrue("Anna tallennettavan tiedoston nimi (älä anna tiedostonpäätettä):".equals(io.getOutput(15)));
     }
     
     @Test
@@ -122,6 +126,6 @@ public class ReferenceTest {
         ref.askAuthors();
         assertTrue("Anna kirjailija/kirjailijat (Etunimen ja sukunimen välissä paina Enter ja lopuksi vielä Enter):".equals(io.getOutput(0)));
     }
-    
+        
     
 }

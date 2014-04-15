@@ -71,10 +71,14 @@ public class UI {
         String file = io.nextInput();
         io.output("Give type to search for");
         String type = io.nextInput();
+        if(type.equals("")){
+             io.output(haku.search(file + ".bib", "author", ""));
+             return;
+        }
         io.output("Give keyword to search for");
         String keyword = io.nextInput();
-        System.out.println("");
-        System.out.println(haku.search(file, type, keyword));
+        io.output("");
+        io.output(haku.search(file + ".bib", type, keyword));
     }
     
     

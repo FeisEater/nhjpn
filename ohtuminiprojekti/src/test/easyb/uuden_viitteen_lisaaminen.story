@@ -23,10 +23,10 @@ scenario "käyttäjän annettua oikeat lomaketiedot kirjasta ne tulostetaan taka
     }
 
     then 'samat tiedot tulostetaan ennen hyväksymistä', {
-        io.getOutput(8).shouldHave("Etunimi:Sukunimi")
-        io.getOutput(9).shouldHave("Kirja")
-        io.getOutput(10).shouldHave("1987")
-        io.getOutput(11).shouldHave("Julkaisija")
+        io.getOutput(9).shouldHave("Etunimi Sukunimi")
+        io.getOutput(10).shouldHave("Kirja")
+        io.getOutput(11).shouldHave("1987")
+        io.getOutput(12).shouldHave("Julkaisija")
     }
 }
 
@@ -34,6 +34,7 @@ scenario "käyttäjän annettua oikeat lomaketiedot tiedoston luonti onnistuu", 
     given 'ohjelma on käynnistetty', {
         io = new StubIO() 
         ui = new UI(io)
+        sc = new ScannerForTest("tiedosto.bib")        
     }
 
     when 'oikeat tiedot on lisätty lomakkeeseen', {
@@ -51,7 +52,6 @@ scenario "käyttäjän annettua oikeat lomaketiedot tiedoston luonti onnistuu", 
     }
 
     then 'tieto löytyy tiedostosta', {
-        sc = new ScannerForTest("tiedosto.bib")        
         sc.readFile()
         sc.contains("@book").shouldBe(true)
         sc.contains("author = {Sukunimi, Etunimi}").shouldBe(true)
@@ -83,10 +83,12 @@ scenario "käyttäjä antaa tiedot artikkelista ja ne tulostetaan oikein ennen h
         }
         
         then 'samat tiedot tulostetaan ennen hyväksymistä', {
-        	io.getOutput(8).shouldHave("Mina:Sina")
-        	io.getOutput(9).shouldHave("artikkeli")
-        	io.getOutput(10).shouldHave("1234")
-        	io.getOutput(11).shouldHave("Julkaisija")
+
+        	io.getOutput(9).shouldHave("Mina Sina")
+        	io.getOutput(10).shouldHave("artikkeli")
+        	io.getOutput(11).shouldHave("1234")
+        	io.getOutput(12).shouldHave("Julkaisija")
+
         }
 }
 
@@ -94,6 +96,7 @@ scenario "käyttäjän annettua oikeat artikkelin lomaketiedot tiedoston luonti 
     given 'ohjelma on käynnistetty', {
         io = new StubIO() 
         ui = new UI(io)
+        sc = new ScannerForTest("tiedosto.bib")        
     }
 
     when 'oikeat tiedot on lisätty lomakkeeseen', {
@@ -111,7 +114,6 @@ scenario "käyttäjän annettua oikeat artikkelin lomaketiedot tiedoston luonti 
     }
 
     then 'tieto löytyy tiedostosta', {
-        sc = new ScannerForTest("tiedosto.bib")        
         sc.readFile()
         sc.contains("@article").shouldBe(true)
         sc.contains("author = {Sina, Mina}").shouldBe(true)
