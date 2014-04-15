@@ -119,6 +119,5 @@ public class UITest {
         ui.run();
         assertTrue("Give name of the file".equals(io.getOutput(2)));
         assertTrue("Give type to search for".equals(io.getOutput(3)));
-        assertTrue("Give keyword to search for".equals(io.getOutput(4)));
     }
 }
